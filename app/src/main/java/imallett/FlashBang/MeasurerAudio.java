@@ -1,4 +1,4 @@
-package com.example.ianmallett.AutomaticDistanceEstimator;
+package imallett.FlashBang;
 
 import android.media.AudioFormat;
 import android.media.AudioRecord;
@@ -25,8 +25,8 @@ public class MeasurerAudio extends MeasurerBase {
 						//Log.d(C.TAG, "Attempting rate " + sample_rate + "Hz, bits: " + encoding + ", channel: " + channel_format);
 						int buffer_size = AudioRecord.getMinBufferSize(sample_rate, channel_format, encoding);
 						if (buffer_size!=AudioRecord.ERROR && buffer_size!=AudioRecord.ERROR_BAD_VALUE) {
-							//recorder = new AudioRecord(MediaRecorder.AudioSource.MIC, sample_rate, channel_format, encoding, buffer_size);
-							recorder = new AudioRecord.Builder()
+							recorder = new AudioRecord(MediaRecorder.AudioSource.MIC, sample_rate, channel_format, encoding, buffer_size);
+							/*recorder = new AudioRecord.Builder()
 								.setAudioSource(MediaRecorder.AudioSource.DEFAULT)
 								.setAudioFormat(new AudioFormat.Builder()
 									.setEncoding(encoding)
@@ -36,7 +36,7 @@ public class MeasurerAudio extends MeasurerBase {
 								)
 								.setBufferSizeInBytes(2*buffer_size)
 								.build()
-							;
+							;*/
 							if (recorder.getState() == AudioRecord.STATE_INITIALIZED) {
 								SAMPLE_RATE = sample_rate;
 								CHANNEL_FORMAT = channel_format;
@@ -72,18 +72,23 @@ public class MeasurerAudio extends MeasurerBase {
 			valid = false;
 		}
 	}
-	@Override protected void finalize() { recorder.release(); }
+	@Override protected void finalize() {
+		if (!valid) return;
+		recorder.release();
+	}
 
 	void start() {
-		assert recorder.getState()==AudioRecord.STATE_INITIALIZED;
+		if (!valid) return;
 		recorder.startRecording();
 	}
 	void stop() {
-		assert recorder.getState()==AudioRecord.STATE_INITIALIZED;
+		if (!valid) return;
 		recorder.stop();
 	}
 
 	void update() {
+		if (!valid) return;
+
 		int num_read;
 		switch (SAMPLE_ENCODING) {
 			case AudioFormat.ENCODING_PCM_FLOAT:

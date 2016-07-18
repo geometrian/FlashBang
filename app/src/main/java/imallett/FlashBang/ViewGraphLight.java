@@ -1,4 +1,4 @@
-package com.example.ianmallett.AutomaticDistanceEstimator;
+package imallett.FlashBang;
 
 import android.content.Context;
 import android.graphics.Canvas;

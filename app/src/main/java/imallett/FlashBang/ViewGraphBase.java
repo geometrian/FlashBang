@@ -1,4 +1,4 @@
-package com.example.ianmallett.AutomaticDistanceEstimator;
+package imallett.FlashBang;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -37,7 +37,11 @@ public class ViewGraphBase extends SurfaceView implements SurfaceHolder.Callback
 		}
 	}
 	protected void _drawBackground(Canvas canvas, boolean valid) {
-		canvas.drawARGB(255,255,255,255);
+		if (valid) {
+			canvas.drawARGB(255,225,255,225);
+		} else {
+			canvas.drawARGB(255,255,225,225);
+		}
 	}
 	protected void _drawAxes(Canvas canvas) {
 		int w = canvas.getWidth();

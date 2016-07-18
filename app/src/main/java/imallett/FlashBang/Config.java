@@ -1,4 +1,4 @@
-package com.example.ianmallett.AutomaticDistanceEstimator;
+package imallett.FlashBang;
 
 public class Config {
 	public static final int STAT_RATE = 50; //samples/sec; rate at which statistics are calculated and stored

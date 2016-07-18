@@ -1,4 +1,4 @@
-package com.example.ianmallett.AutomaticDistanceEstimator;
+package imallett.FlashBang;
 
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
