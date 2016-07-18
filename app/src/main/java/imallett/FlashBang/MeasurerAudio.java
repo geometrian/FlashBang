@@ -10,7 +10,7 @@ public class MeasurerAudio extends MeasurerBase {
 	public short SAMPLE_ENCODING;
 	private AudioRecord recorder;
 
-	private int offset = 0;
+	private  long[] buffer_ts;
 	private  byte[] buffer_b;
 	private short[] buffer_s;
 	private float[] buffer_f;
@@ -54,18 +54,19 @@ public class MeasurerAudio extends MeasurerBase {
 		}
 		return false;
 	}
-	public MeasurerAudio() {
+	public MeasurerAudio(DataStream stream) {
+		super(stream);
+
 		if (createRecorder()) {
 			assert recorder.getState()==AudioRecord.STATE_INITIALIZED;
 
 			int buffer_size = AudioRecord.getMinBufferSize(SAMPLE_RATE, CHANNEL_FORMAT, SAMPLE_ENCODING);
 			assert buffer_size!=AudioRecord.ERROR && buffer_size!=AudioRecord.ERROR_BAD_VALUE;
 			if (buffer_size<SAMPLE_RATE) buffer_size=SAMPLE_RATE; //Ensure it's at least one second
-			buffer_b = new  byte[buffer_size];
-			buffer_s = new short[buffer_size];
-			buffer_f = new float[buffer_size];
-
-			for (int i=0;i<stat_arr.length;++i) stat_arr[i]=0.0f;
+			buffer_ts = new  long[buffer_size];
+			buffer_b  = new  byte[buffer_size];
+			buffer_s  = new short[buffer_size];
+			buffer_f  = new float[buffer_size];
 
 			valid = true;
 		} else {
@@ -92,16 +93,16 @@ public class MeasurerAudio extends MeasurerBase {
 		int num_read;
 		switch (SAMPLE_ENCODING) {
 			case AudioFormat.ENCODING_PCM_FLOAT:
-				num_read = recorder.read(buffer_f, offset,buffer_f.length-offset, AudioRecord.READ_NON_BLOCKING);
+				num_read = recorder.read(buffer_f, 0,buffer_f.length, AudioRecord.READ_NON_BLOCKING);
 				break;
 			case AudioFormat.ENCODING_PCM_16BIT:
-				num_read = recorder.read(buffer_s, offset,buffer_s.length-offset, AudioRecord.READ_NON_BLOCKING);
+				num_read = recorder.read(buffer_s, 0,buffer_s.length, AudioRecord.READ_NON_BLOCKING);
 				for (int i=0;i<buffer_s.length;++i) {
 					buffer_f[i] = buffer_s[i]/32768.0f;
 				}
 				break;
 			case AudioFormat.ENCODING_PCM_8BIT:
-				num_read = recorder.read(buffer_b, offset,buffer_b.length-offset, AudioRecord.READ_NON_BLOCKING);
+				num_read = recorder.read(buffer_b, 0,buffer_b.length, AudioRecord.READ_NON_BLOCKING);
 				for (int i=0;i<buffer_s.length;++i) {
 					buffer_f[i] = (buffer_b[i]-128.0f)/128.0f;
 				}
@@ -110,36 +111,14 @@ public class MeasurerAudio extends MeasurerBase {
 				assert false; return;
 		}
 		if (num_read>0); else return;
-		_ts_last_event = System.nanoTime();
 
-		assert SAMPLE_RATE % Config.STAT_RATE == 0;
-		int BUF_PER_VOL = SAMPLE_RATE / Config.STAT_RATE;
-		int total = offset + num_read;
-		int added = total / BUF_PER_VOL; //Number of new max volume sample
-		int valid = added * BUF_PER_VOL; //Number of valid raw samples
-		int deferred = total % BUF_PER_VOL; //Number of raw samples deferred to next time
-
-		//Shift volume samples
-		for (int i=stat_arr.length-added-1;i>=0;--i) {
-			stat_arr[i+added] = stat_arr[i];
-		}
-		//Insert new volume samples
-		for (int i=0;i<added;++i) {
-			float max = 0.0f;
-			int base_sample = i*BUF_PER_VOL;
-			for (int j=0;j<BUF_PER_VOL;++j) {
-				float sample = buffer_f[base_sample+j];
-				max = Math.max(max,Math.abs(sample));
+		long tn = System.nanoTime();
+		synchronized(_stream) {
+			int temp = -(num_read-1);
+			for (int i=0;i<num_read;++i) {
+				buffer_ts[i] = tn + (long)(temp + i)*(long)1000000000/(long)SAMPLE_RATE;
 			}
-			stat_arr[i] = max;
+			_stream.updateVolumes(buffer_ts,buffer_f, num_read);
 		}
-		//Shift unusable samples forward so we can add onto them and hopefully use them next time.
-		switch (SAMPLE_ENCODING) {
-			case AudioFormat.ENCODING_PCM_FLOAT: for (int i=0;i<deferred;++i) { buffer_f[i]=buffer_f[valid+i]; } break;
-			case AudioFormat.ENCODING_PCM_16BIT: for (int i=0;i<deferred;++i) { buffer_s[i]=buffer_s[valid+i]; } break;
-			case AudioFormat.ENCODING_PCM_8BIT:  for (int i=0;i<deferred;++i) { buffer_b[i]=buffer_b[valid+i]; } break;
-			default: assert false; return;
-		}
-		offset = deferred;
 	}
 }

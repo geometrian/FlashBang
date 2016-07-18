@@ -7,10 +7,12 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity implements Button.OnClickListener {
-	MeasurerAudio audio;
-	MeasurerLight light;
+	private DataStream stream;
 
-	UpdateThread update_thread;
+	private MeasurerAudio audio;
+	private MeasurerLight light;
+
+	private UpdateThread update_thread;
 
 	//TextView textLIGHT_available, textLIGHT_reading;
 
@@ -31,11 +33,13 @@ public class MainActivity extends AppCompatActivity implements Button.OnClickLis
 		//textLIGHT_available = (TextView)findViewById(R.id.LIGHT_available);
 		//textLIGHT_reading   = (TextView)findViewById(R.id.LIGHT_reading);
 
-		audio = new MeasurerAudio();
+		stream = new DataStream();
+
+		audio = new MeasurerAudio(stream);
 		audio.start();
 		graph_audio.audio = audio;
 
-		light = new MeasurerLight( (SensorManager)getSystemService(SENSOR_SERVICE) );
+		light = new MeasurerLight( stream, (SensorManager)getSystemService(SENSOR_SERVICE) );
 		graph_light.light = light;
 		graph_light.scale = 1.0f/500.0f;
 

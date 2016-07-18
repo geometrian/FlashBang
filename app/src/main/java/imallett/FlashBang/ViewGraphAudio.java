@@ -8,25 +8,20 @@ public class ViewGraphAudio extends ViewGraphBase {
 	public MeasurerAudio audio;
 
 	public ViewGraphAudio(Context context, AttributeSet attrs) {
-		super(context,attrs); _init();
+		super(context,attrs);
 	}
 	public ViewGraphAudio(Context context, AttributeSet attrs, int defStyleAttr) {
-		super(context,attrs,defStyleAttr); _init();
-	}
-	public void _init() {
-		setWillNotDraw(false);
-		setWillNotCacheDrawing(true);
-		getHolder().addCallback(this);
+		super(context,attrs,defStyleAttr);
 	}
 
 	@Override public void onDraw(Canvas canvas) {
+		super._drawPrepare(canvas);
 		synchronized(this) {
-			float x_shift = 0.0f;//audio.getNanosShift() / (double)dt_ns;
-
-			super._drawPrepare(canvas,audio.stat_arr);
 			super._drawBackground(canvas,audio.valid);
 			super._drawAxes(canvas);
-			super._drawGraph(canvas,audio.stat_arr,x_shift);
+			synchronized(audio._stream) {
+				super._drawGraph(canvas,audio._stream,0);
+			}
 		}
 	}
 

@@ -29,6 +29,7 @@ public class UpdateThread extends Thread {
 		while (!stop_requested) {
 			//Update data
 			_audio.update();
+			//	lux updates via a callback automatically
 
 			//Compute cross-correlation
 
