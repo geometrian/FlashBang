@@ -1,8 +1,10 @@
-package imallett.FlashBang;
+package imallett.FlashBang.imallett.FlashBang.Measurement;
 
 import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.media.MediaRecorder;
+
+import imallett.FlashBang.DataStream;
 
 public class MeasurerAudio extends MeasurerBase {
 	public int SAMPLE_RATE;
@@ -78,16 +80,16 @@ public class MeasurerAudio extends MeasurerBase {
 		recorder.release();
 	}
 
-	void start() {
+	public void start() {
 		if (!valid) return;
 		recorder.startRecording();
 	}
-	void stop() {
+	public void stop() {
 		if (!valid) return;
 		recorder.stop();
 	}
 
-	void update() {
+	public void update() {
 		if (!valid) return;
 
 		int num_read;
@@ -113,12 +115,12 @@ public class MeasurerAudio extends MeasurerBase {
 		if (num_read>0); else return;
 
 		long tn = System.nanoTime();
-		synchronized(_stream) {
+		synchronized(stream) {
 			int temp = -(num_read-1);
 			for (int i=0;i<num_read;++i) {
 				buffer_ts[i] = tn + (long)(temp + i)*(long)1000000000/(long)SAMPLE_RATE;
 			}
-			_stream.updateVolumes(buffer_ts,buffer_f, num_read);
+			stream.updateVolumes(buffer_ts,buffer_f, num_read);
 		}
 	}
 }

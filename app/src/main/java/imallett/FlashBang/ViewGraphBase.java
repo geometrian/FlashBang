@@ -19,6 +19,9 @@ public class ViewGraphBase extends SurfaceView implements SurfaceHolder.Callback
 
 	public float scale = 1.0f;
 
+	protected ViewGraphBase(Context context) {
+		super(context); _init();
+	}
 	protected ViewGraphBase(Context context, AttributeSet attrs) {
 		super(context,attrs); _init();
 	}
@@ -57,8 +60,8 @@ public class ViewGraphBase extends SurfaceView implements SurfaceHolder.Callback
 		int h = canvas.getHeight();
 
 		paint.setColor(Color.BLACK);
-		canvas.drawLine(0,h-1, w-1,h-1, paint);
-		canvas.drawLine(0,h-1, 0,0, paint);
+		canvas.drawLine(0,h-6, w-1,h-6, paint);
+		canvas.drawLine(w-1,h-1, w-1,0, paint);
 	}
 	protected void _drawGraph(Canvas canvas, DataStream data,int attrib_index) {
 		int w = canvas.getWidth();
@@ -69,11 +72,12 @@ public class ViewGraphBase extends SurfaceView implements SurfaceHolder.Callback
 		long tr = System.nanoTime();
 		long tl = tr - (DataStream.N-1)*Config.BUCKET_NS;
 		long t;
+		float sc = (h-5)*scale;
 		for (int i=0;i<DataStream.N;++i) {
 			t = t0 + i*Config.BUCKET_NS;
 			float part = (float)( (double)(t-tl) / (double)(tr-tl) );
 			_points[i].x = part*w;
-			_points[i].y = h-1 - h*scale*data.buckets[i].data[attrib_index];
+			_points[i].y = h-6 - sc*data.buckets[i].data[attrib_index];
 		}
 
 		paint.setColor(Color.RED);

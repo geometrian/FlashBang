@@ -4,25 +4,26 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
 
+import imallett.FlashBang.imallett.FlashBang.Measurement.MeasurerAudio;
+
 public class ViewGraphAudio extends ViewGraphBase {
 	public MeasurerAudio audio;
 
-	public ViewGraphAudio(Context context, AttributeSet attrs) {
-		super(context,attrs);
-	}
-	public ViewGraphAudio(Context context, AttributeSet attrs, int defStyleAttr) {
-		super(context,attrs,defStyleAttr);
-	}
+	public ViewGraphAudio(Context context) { super(context); }
+	public ViewGraphAudio(Context context, AttributeSet attrs) { super(context,attrs); }
+	public ViewGraphAudio(Context context, AttributeSet attrs, int defStyleAttr) { super(context,attrs,defStyleAttr); }
 
 	@Override public void onDraw(Canvas canvas) {
-		super._drawPrepare(canvas);
-		synchronized(this) {
-			super._drawBackground(canvas,audio.valid);
-			super._drawAxes(canvas);
-			synchronized(audio._stream) {
-				super._drawGraph(canvas,audio._stream,0);
+		try {
+			super._drawPrepare(canvas);
+			synchronized(this) {
+				super._drawBackground(canvas,audio.valid);
+				super._drawAxes(canvas);
+				synchronized(audio.stream) {
+					super._drawGraph(canvas,audio.stream,0);
+				}
 			}
-		}
+		} catch (NullPointerException e) {} //Workaround for moronic bugs in Android Studio
 	}
 
 

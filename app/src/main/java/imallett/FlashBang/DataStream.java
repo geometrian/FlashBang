@@ -10,12 +10,14 @@ public class DataStream {
 	public static class Bucket {
 		public float[] data = {
 			0.0f, //max volume
-			0.0f, //max lux
-			0.0f, //average humidity
-			0.0f  //average temperature
+			0.0f, //max lux (transformed)
+			0.0f, //average humidity (relative)
+			0.0f, //average pressure
+			0.0f, //average temperature
+			0.0f  //Cross-correlation result
 		};
-		public boolean[] valid = { false,false,false,false };
-		public int n_h=0, n_t=0;
+		public boolean[] valid = { false,false,false,false,false, false };
+		public int n_h=0, n_p=0, n_t=0;
 
 		public void updateVolume(float volume) { data[0]=Math.max(data[0],Math.abs(volume)); valid[0]=true; }
 		public void updateLux(float lux) {
@@ -26,10 +28,15 @@ public class DataStream {
 			data[2] /= n_h++;
 			valid[2] = true;
 		}
-		public void updateTemperature(float temperature) {
-			data[3] = data[3]*n_t + temperature;
-			data[3] /= n_t++;
+		public void updatePressure(float pressure) {
+			data[3] = data[2]*n_p + pressure;
+			data[3] /= n_p++;
 			valid[3] = true;
+		}
+		public void updateTemperature(float temperature) {
+			data[4] = data[4]*n_t + temperature;
+			data[4] /= n_t++;
+			valid[4] = true;
 		}
 
 		/*public float getMaxVolume() { return data[0]; }
@@ -37,7 +44,7 @@ public class DataStream {
 		public float getAvgHumidity() { return data[2]; }
 		public float getAvgTemperature() { return data[3]; }*/
 
-		@Override public String toString() { return "(v,l,h,t)=("+data[0]+","+data[1]+","+data[2]+","+data[3]+")"; }
+		@Override public String toString() { return "([corr], v,l,h,p,t)=(["+data[5]+"], "+data[0]+","+data[1]+","+data[2]+","+data[3]+","+data[4]+")"; }
 	}
 
 	//Maximum volume per decisecond for 10 seconds (= ~3.4029 km max distance)
@@ -88,6 +95,9 @@ public class DataStream {
 	}
 	public void updateHumidity(long t, float humidity) {
 		int i=_getIndex(t); if (i>=0) buckets[i].updateHumidity(humidity);
+	}
+	public void updatePressure(long t, float pressure) {
+		int i=_getIndex(t); if (i>=0) buckets[i].updatePressure(pressure);
 	}
 	public void updateTemperature(long t, float temperature) {
 		int i=_getIndex(t); if (i>=0) buckets[i].updateTemperature(temperature);

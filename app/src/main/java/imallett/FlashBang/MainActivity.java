@@ -5,6 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
+import imallett.FlashBang.imallett.FlashBang.Measurement.MeasurerAudio;
+import imallett.FlashBang.imallett.FlashBang.Measurement.MeasurerLight;
+import imallett.FlashBang.imallett.FlashBang.Threading.ThreadCorrelate;
+import imallett.FlashBang.imallett.FlashBang.Threading.ThreadUpdate;
 
 public class MainActivity extends AppCompatActivity implements Button.OnClickListener {
 	private DataStream stream;
@@ -12,9 +18,11 @@ public class MainActivity extends AppCompatActivity implements Button.OnClickLis
 	private MeasurerAudio audio;
 	private MeasurerLight light;
 
-	private UpdateThread update_thread;
+	private ThreadUpdate _thread_update;
+	public ThreadCorrelate thread_correlate;
 
-	//TextView textLIGHT_available, textLIGHT_reading;
+	public TextView text_distance;
+
 
 	//Button button;
 	//TextView text;
@@ -25,6 +33,8 @@ public class MainActivity extends AppCompatActivity implements Button.OnClickLis
 
 		ViewGraphAudio graph_audio = (ViewGraphAudio)findViewById(R.id.graph_audio);
 		ViewGraphLight graph_light = (ViewGraphLight)findViewById(R.id.graph_light);
+
+		text_distance = (TextView)findViewById(R.id.text_distance);
 
 		//button = (Button)this.findViewById(R.id.myButton);
 		//text = (TextView)this.findViewById(R.id.textView);
@@ -41,17 +51,21 @@ public class MainActivity extends AppCompatActivity implements Button.OnClickLis
 
 		light = new MeasurerLight( stream, (SensorManager)getSystemService(SENSOR_SERVICE) );
 		graph_light.light = light;
-		graph_light.scale = 1.0f/500.0f;
 
-		update_thread = new UpdateThread(audio, graph_audio,graph_light);
-		update_thread.start();
+		_thread_update = new ThreadUpdate(this, stream, audio, graph_audio,graph_light);
+		thread_correlate = new ThreadCorrelate(stream);
+
+		_thread_update.start();
+		thread_correlate.start();
 	}
 	@Override protected void onDestroy() {
-		update_thread.stop_requested = true;
+		_thread_update.stop_requested = true;
+		thread_correlate.stop_requested = true;
 		boolean retry = true;
 		do {
 			try {
-				update_thread.join();
+				_thread_update.join();
+				thread_correlate.join();
 				retry = false;
 			} catch (InterruptedException e) {}
 		} while (retry);
