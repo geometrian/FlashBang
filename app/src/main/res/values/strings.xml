@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name" translatable="false">FlashBang</string>
-    <string name="readme_name" translatable="false">FlashBang (Readme)</string>
+    <string name=    "name_app" translatable="false">FlashBang</string>
+    <string name="name_options" translatable="false">FlashBang (Options)</string>
+    <string name= "name_readme" translatable="false">FlashBang (Readme)</string>
 
     <string name="defstr">[unset string]</string>
 
@@ -25,5 +26,6 @@
     <string name="caption_dist_noval">&#032;&#032;Value: (cannot calculate without audio)</string>
     <string name="caption_dist_okval">&#032;&#032;Value:</string>
 
+    <string name="caption_button_options">Options</string>
     <string name="caption_button_readme">View readme</string>
 </resources>

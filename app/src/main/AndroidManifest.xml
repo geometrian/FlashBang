@@ -7,7 +7,7 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/icon_launcher"
-        android:label="@string/app_name"
+        android:label="@string/name_app"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
@@ -18,13 +18,11 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Activities.ActivityReadme" android:label="@string/readme_name">
-            <intent-filter>
-                <action android:name="android.intent.action.ACTION_VIEW"/>
-                <category android:name="android.intent.category.INFO"/>
-            </intent-filter>
+        <activity android:name=".Activities.ActivityOptions" android:label="@string/name_options">
         </activity>
 
+        <activity android:name=".Activities.ActivityReadme" android:label="@string/name_readme">
+        </activity>
     </application>
 
 </manifest>

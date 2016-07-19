@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">FlashBang</string>
-    <string name="readme_name" translatable="false">FlashBang (Readme)</string>
-
     <string name="defstr">[chaîne indéfini]</string>
 
     <string name="caption_input">Les données d\'entrée:</string>
@@ -26,5 +23,6 @@
     <string name="caption_dist_noval">&#032;&#032;Entrée: (ne peut pas calculer sans l\'audio)</string>
     <string name="caption_dist_okval">&#032;&#032;Entrée:</string>
 
+    <string name="caption_button_options">Options</string>
     <string name="caption_button_readme">Voyez readme</string>
 </resources>

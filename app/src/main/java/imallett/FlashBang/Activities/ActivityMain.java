@@ -46,9 +46,15 @@ public class ActivityMain extends AppCompatActivity {
 
 	public TextView text_value_dist;
 
+	public Button button_options;
 	public Button button_readme;
 
 	@Override protected void onCreate(Bundle savedInstanceState) {
+		Config.units_pressure    = Config.UNITS.values()[ getSharedPreferences(Config.units_file,MODE_PRIVATE).getInt(   "pressure", 0) ];
+		Config.units_temperature = Config.UNITS.values()[ getSharedPreferences(Config.units_file,MODE_PRIVATE).getInt("temperature",11) ];
+		Config.units_distance    = Config.UNITS.values()[ getSharedPreferences(Config.units_file,MODE_PRIVATE).getInt(   "distance",19) ];
+		Config.units_speed       = Config.UNITS.values()[ getSharedPreferences(Config.units_file,MODE_PRIVATE).getInt(      "speed",24) ];
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main_window);
 
@@ -68,6 +74,13 @@ public class ActivityMain extends AppCompatActivity {
 
 		text_value_dist = (TextView)findViewById(R.id.text_value_dist);
 
+		button_options = (Button)findViewById(R.id.button_options);
+		button_options.setOnClickListener(new View.OnClickListener() {
+			@Override public void onClick(View v) {
+				Intent intent = new Intent(ActivityMain.this, ActivityOptions.class);
+				ActivityMain.this.startActivity(intent);
+			}
+		});
 		button_readme = (Button)findViewById(R.id.button_readme);
 		button_readme.setOnClickListener(new View.OnClickListener() {
 			@Override public void onClick(View v) {
