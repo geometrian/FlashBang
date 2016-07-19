@@ -1,23 +1,26 @@
 <resources>
-    <string name="app_name">FlashBang</string>
+    <string name="app_name" translatable="false">FlashBang</string>
 
     <string name="defstr">[unset string]</string>
 
     <string name="caption_input">Input values:</string>
     <string name="caption_input_audio">Audio input:</string>
     <string name="caption_input_light">Light input:</string>
-    <string name="caption_input_press">Pressure:</string>
-    <string name="caption_input_temp">Temperature:</string>
-    <string name="caption_input_RH">Relative humidity:</string>
-    <string name="caption_input_nodelay">Delay: (cannot calculate without audio)</string>
-    <string name="caption_input_okdelay">Delay:</string>
+    <string name="caption_input_press">&#032;&#032;Pressure:</string>
+    <string name="caption_input_temp">&#032;&#032;Temperature:</string>
+    <string name="caption_input_RH">&#032;&#032;Relative humidity:</string>
+    <string name="caption_input_abdelay">&#032;&#032;Delay: (no event)</string>
+    <string name="caption_input_nodelay">&#032;&#032;Delay: (cannot calculate without audio)</string>
+    <string name="caption_input_okdelay">&#032;&#032;Delay:</string>
+    <string name="caption_input_sensitivity">&#032;&#032;Sensitivity:</string>
 
     <string name="caption_derived">Derived quantities:</string>
-    <string name="caption_derived_n">Air refractive index:</string>
-    <string name="caption_derived_sol">Speed of light in air:</string>
-    <string name="caption_derived_sos">Speed of sound in air:</string>
+    <string name="caption_derived_n">&#032;&#032;Air refractive index:</string>
+    <string name="caption_derived_sol">&#032;&#032;Speed of light in air:</string>
+    <string name="caption_derived_sos">&#032;&#032;Speed of sound in air:</string>
 
     <string name="caption_dist">Calculated distance:</string>
-    <string name="caption_dist_noval">Value: (cannot calculate without audio)</string>
-    <string name="caption_dist_okval">Value:</string>
+    <string name="caption_dist_abval">&#032;&#032;Value: (no event)</string>
+    <string name="caption_dist_noval">&#032;&#032;Value: (cannot calculate without audio)</string>
+    <string name="caption_dist_okval">&#032;&#032;Value:</string>
 </resources>

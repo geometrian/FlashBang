@@ -6,6 +6,8 @@ public class Config {
 
 	public static final int MAX_DELAY = 10; //data length, in seconds
 
+	public static final float DEFAULT_SENSITIVITY = 0.7f;
+
 	public static String localizePressure(double Pa) {
 		return String.format("%.4f kPa",Pa/1000.0);
 	}

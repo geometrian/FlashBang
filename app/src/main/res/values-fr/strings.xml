@@ -7,18 +7,21 @@
     <string name="caption_input">Les données d\'entrée:</string>
     <string name="caption_input_audio">Entrée auditive:</string>
     <string name="caption_input_light">Entrée lumineuse:</string>
-    <string name="caption_input_press">Pression atmosphérique:</string>
-    <string name="caption_input_temp">Température:</string>
-    <string name="caption_input_RH">Humidité relative:</string>
-    <string name="caption_input_nodelay">Retard: ne peut pas calculer sans l\'audio)</string>
-    <string name="caption_input_okdelay">Retard:</string>
+    <string name="caption_input_press">&#032;&#032;Pression atmosphérique:</string>
+    <string name="caption_input_temp">&#032;&#032;Température:</string>
+    <string name="caption_input_RH">&#032;&#032;Humidité relative:</string>
+    <string name="caption_input_abdelay">&#032;&#032;Retard: (aucun événement trouvé)</string>
+    <string name="caption_input_nodelay">&#032;&#032;Retard: (ne peut pas calculer sans l\'audio)</string>
+    <string name="caption_input_okdelay">&#032;&#032;Retard:</string>
+    <string name="caption_input_sensitivity">&#032;&#032;Sensibilité:</string>
 
-    <string name="caption_input_derived">Quantités dérivées:</string>
-    <string name="caption_derived_n">Indice de réfraction de l\'air:</string>
-    <string name="caption_derived_sol">Vitesse de la lumière dans l\'air:</string>
-    <string name="caption_derived_sos">Vitesse du son dans l\'air:</string>
+    <string name="caption_derived">Quantités dérivées:</string>
+    <string name="caption_derived_n">&#032;&#032;Indice de réfraction de l\'air:</string>
+    <string name="caption_derived_sol">&#032;&#032;Vitesse de la lumière dans l\'air:</string>
+    <string name="caption_derived_sos">&#032;&#032;Vitesse du son dans l\'air:</string>
 
     <string name="caption_dist">Distance calculé:</string>
-    <string name="caption_dist_noval">Entrée: (ne peut pas calculer sans l\'audio)</string>
-    <string name="caption_dist_okval">Entrée:</string>
+    <string name="caption_dist_abval">&#032;&#032;Entrée: (aucun événement trouvé)</string>
+    <string name="caption_dist_noval">&#032;&#032;Entrée: (ne peut pas calculer sans l\'audio)</string>
+    <string name="caption_dist_okval">&#032;&#032;Entrée:</string>
 </resources>

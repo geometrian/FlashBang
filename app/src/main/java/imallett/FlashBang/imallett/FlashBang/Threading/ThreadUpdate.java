@@ -102,23 +102,31 @@ public class ThreadUpdate extends ThreadBase {
 
 				//Update text
 				//	Simple inputs
-				_activity.text_value_pres. setText("  "+_activity.getString(R.string.caption_input_press)+" "+Config.localizePressure(P));
-				_activity.text_value_temp. setText("  "+_activity.getString(R.string.caption_input_temp)+" "+Config.localizeTemperature(T));
-				_activity.text_value_RH.   setText("  "+_activity.getString(R.string.caption_input_RH)+" "+RH+"%");
+				_activity.text_value_pres. setText(_activity.getString(R.string.caption_input_press)+" "+Config.localizePressure(P));
+				_activity.text_value_temp. setText(_activity.getString(R.string.caption_input_temp)+" "+Config.localizeTemperature(T));
+				_activity.text_value_RH.   setText(_activity.getString(R.string.caption_input_RH)+" "+RH+"%");
 				if (_activity.audio.valid&&_activity.light.valid) {
-					_activity.text_value_delay.setText("  "+_activity.getString(R.string.caption_input_okdelay)+" "+String.format("%.2f",delay)+" sec");
+					if (ns!=-1) {
+						_activity.text_value_delay.setText(_activity.getString(R.string.caption_input_okdelay)+" "+String.format("%.2f",delay)+" sec");
+					} else {
+						_activity.text_value_delay.setText(_activity.getString(R.string.caption_input_abdelay));
+					}
 				} else {
-					_activity.text_value_delay.setText("  "+_activity.getString(R.string.caption_input_nodelay));
+					_activity.text_value_delay.setText(_activity.getString(R.string.caption_input_nodelay));
 				}
 				//	Derived quantities
-				_activity.text_value_airn.setText("  "+_activity.getString(R.string.caption_derived_n)+" "+String.format("%.9f",n));
-				_activity.text_value_sol. setText("  "+_activity.getString(R.string.caption_derived_sol)+" "+Config.localizeSpeed(v));
-				_activity.text_value_sos. setText("  "+_activity.getString(R.string.caption_derived_sos)+" "+Config.localizeSpeed(C));
+				_activity.text_value_airn.setText(_activity.getString(R.string.caption_derived_n)+" "+String.format("%.9f",n));
+				_activity.text_value_sol. setText(_activity.getString(R.string.caption_derived_sol)+" "+Config.localizeSpeed(v));
+				_activity.text_value_sos. setText(_activity.getString(R.string.caption_derived_sos)+" "+Config.localizeSpeed(C));
 				//	Value
 				if (_activity.audio.valid&&_activity.light.valid) {
-					_activity.text_value_dist.setText("  "+_activity.getString(R.string.caption_dist_okval)+" "+Config.localizeLength(dist));
+					if (ns!=-1) {
+						_activity.text_value_dist.setText(_activity.getString(R.string.caption_dist_okval)+" "+Config.localizeLength(dist));
+					} else {
+						_activity.text_value_dist.setText(_activity.getString(R.string.caption_dist_abval));
+					}
 				} else {
-					_activity.text_value_dist.setText("  "+_activity.getString(R.string.caption_dist_noval));
+					_activity.text_value_dist.setText(_activity.getString(R.string.caption_dist_noval));
 				}
 			}});
 		}

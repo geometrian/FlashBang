@@ -2,8 +2,11 @@ package imallett.FlashBang.imallett.FlashBang.Threading;
 
 import imallett.FlashBang.Config;
 import imallett.FlashBang.DataStream;
+import imallett.FlashBang.MainActivity;
 
 public class ThreadCorrelate extends ThreadBase {
+	private final MainActivity _activity;
+
 	private final DataStream _stream;
 
 	private float[] _xs = new float[DataStream.N];
@@ -13,7 +16,10 @@ public class ThreadCorrelate extends ThreadBase {
 
 	public volatile long delay = -1;
 
-	public ThreadCorrelate(DataStream stream) { _stream=stream; }
+	public ThreadCorrelate(MainActivity activity, DataStream stream) {
+		_activity = activity;
+		_stream = stream;
+	}
 
 	private void _subtractMeansCalcDenom() {
 		//Subtract off means
@@ -87,13 +93,20 @@ public class ThreadCorrelate extends ThreadBase {
 			}
 			_subtractMeansCalcDenom();
 
-			int best_i;
-			best_i = _doCorrelationPhase(0,DataStream.N,10);
-			if (best_i!=-1); else continue;
-			best_i = _doCorrelationPhase(best_i,Math.min(best_i+10,DataStream.N),1);
-			if (best_i!=-1); else continue;
+			boolean okay = false;
+			int best_i = _doCorrelationPhase(0,DataStream.N,10);
+			if (best_i!=-1) {
+				best_i = _doCorrelationPhase(best_i,Math.min(best_i+10,DataStream.N),1);
+				if (best_i!=-1) {
+					okay = true;
+				}
+			}
 
-			delay = best_i*Config.BUCKET_NS;
+			if (okay && _stream.buckets[best_i].valid[0]&&_stream.buckets[best_i].valid[1] && _rs[best_i]>=(100-_activity.seekbar_sensitivity.getProgress())*0.01f) {
+				delay = best_i*Config.BUCKET_NS;
+			} else {
+				delay = -1;
+			}
 		}
 	}
 }

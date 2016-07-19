@@ -3,6 +3,7 @@ package imallett.FlashBang;
 import android.hardware.SensorManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 import imallett.FlashBang.imallett.FlashBang.Measurement.MeasurerAudio;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 	public TextView text_value_temp;
 	public TextView text_value_RH;
 	public TextView text_value_delay;
+	public SeekBar seekbar_sensitivity;
 
 	public TextView text_value_airn;
 	public TextView text_value_sol;
@@ -49,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
 		text_value_temp  = (TextView)findViewById(R.id.text_value_temp);
 		text_value_RH    = (TextView)findViewById(R.id.text_value_RH);
 		text_value_delay = (TextView)findViewById(R.id.text_value_delay);
+		seekbar_sensitivity = (SeekBar)findViewById(R.id.seekbar_sensitivity);
+		seekbar_sensitivity.setProgress(Math.round(Config.DEFAULT_SENSITIVITY*100.0f));
 
 		text_value_airn = (TextView)findViewById(R.id.text_value_airn);
 		text_value_sol  = (TextView)findViewById(R.id.text_value_sol);
@@ -74,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
 		temperature = new MeasurerTemperature(stream, sensor_manager);
 
 		_thread_update = new ThreadUpdate(this, stream, audio, graph_audio,graph_light);
-		thread_correlate = new ThreadCorrelate(stream);
+		thread_correlate = new ThreadCorrelate(this, stream);
 
 		_thread_update.start();
 		thread_correlate.start();

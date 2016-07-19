@@ -87,11 +87,32 @@
             android:id="@+id/text_value_delay"
             android:background="@color/color_bad"/>
 
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/caption_input_sensitivity"
+                android:id="@+id/textView"
+                android:background="@color/color_good"/>
+
+            <SeekBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/seekbar_sensitivity"
+                android:layout_marginLeft="5dp"/>
+
+        </LinearLayout>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/caption_input"/>
+            android:text="@string/caption_derived"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
