@@ -1,10 +1,10 @@
-package imallett.FlashBang.imallett.FlashBang.Views;
+package imallett.FlashBang.Views;
 
 import android.content.Context;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
 
-import imallett.FlashBang.imallett.FlashBang.Measurement.MeasurerLight;
+import imallett.FlashBang.Measurement.MeasurerLight;
 
 public class ViewGraphLight extends ViewGraphBase {
 	public MeasurerLight light;

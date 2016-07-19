@@ -1,10 +1,10 @@
-package imallett.FlashBang.imallett.FlashBang.Views;
+package imallett.FlashBang.Views;
 
 import android.content.Context;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
 
-import imallett.FlashBang.imallett.FlashBang.Measurement.MeasurerAudio;
+import imallett.FlashBang.Measurement.MeasurerAudio;
 
 public class ViewGraphAudio extends ViewGraphBase {
 	public MeasurerAudio audio;

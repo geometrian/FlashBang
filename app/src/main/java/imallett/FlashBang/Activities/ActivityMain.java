@@ -1,22 +1,28 @@
-package imallett.FlashBang;
+package imallett.FlashBang.Activities;
 
+import android.content.Intent;
 import android.hardware.SensorManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import imallett.FlashBang.imallett.FlashBang.Measurement.MeasurerAudio;
-import imallett.FlashBang.imallett.FlashBang.Measurement.MeasurerHumidity;
-import imallett.FlashBang.imallett.FlashBang.Measurement.MeasurerLight;
-import imallett.FlashBang.imallett.FlashBang.Measurement.MeasurerPressure;
-import imallett.FlashBang.imallett.FlashBang.Measurement.MeasurerTemperature;
-import imallett.FlashBang.imallett.FlashBang.Threading.ThreadCorrelate;
-import imallett.FlashBang.imallett.FlashBang.Threading.ThreadUpdate;
-import imallett.FlashBang.imallett.FlashBang.Views.ViewGraphAudio;
-import imallett.FlashBang.imallett.FlashBang.Views.ViewGraphLight;
+import imallett.FlashBang.Config;
+import imallett.FlashBang.DataStream;
+import imallett.FlashBang.Measurement.MeasurerAudio;
+import imallett.FlashBang.Measurement.MeasurerHumidity;
+import imallett.FlashBang.Measurement.MeasurerLight;
+import imallett.FlashBang.Measurement.MeasurerPressure;
+import imallett.FlashBang.Measurement.MeasurerTemperature;
+import imallett.FlashBang.R;
+import imallett.FlashBang.Threading.ThreadCorrelate;
+import imallett.FlashBang.Threading.ThreadUpdate;
+import imallett.FlashBang.Views.ViewGraphAudio;
+import imallett.FlashBang.Views.ViewGraphLight;
 
-public class MainActivity extends AppCompatActivity {
+public class ActivityMain extends AppCompatActivity {
 	private DataStream stream;
 
 	public MeasurerAudio audio;
@@ -40,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
 
 	public TextView text_value_dist;
 
+	public Button button_readme;
+
 	@Override protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main_window);
@@ -59,6 +67,14 @@ public class MainActivity extends AppCompatActivity {
 		text_value_sos  = (TextView)findViewById(R.id.text_value_sos);
 
 		text_value_dist = (TextView)findViewById(R.id.text_value_dist);
+
+		button_readme = (Button)findViewById(R.id.button_readme);
+		button_readme.setOnClickListener(new View.OnClickListener() {
+			@Override public void onClick(View v) {
+				Intent intent = new Intent(ActivityMain.this, ActivityReadme.class);
+				ActivityMain.this.startActivity(intent);
+			}
+		});
 
 		stream = new DataStream();
 

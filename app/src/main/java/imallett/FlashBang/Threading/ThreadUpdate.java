@@ -1,18 +1,18 @@
-package imallett.FlashBang.imallett.FlashBang.Threading;
+package imallett.FlashBang.Threading;
 
 import android.graphics.Canvas;
 import android.view.SurfaceView;
 
 import imallett.FlashBang.Config;
 import imallett.FlashBang.DataStream;
-import imallett.FlashBang.MainActivity;
+import imallett.FlashBang.Activities.ActivityMain;
 import imallett.FlashBang.R;
-import imallett.FlashBang.imallett.FlashBang.Views.ViewGraphAudio;
-import imallett.FlashBang.imallett.FlashBang.Views.ViewGraphLight;
-import imallett.FlashBang.imallett.FlashBang.Measurement.MeasurerAudio;
+import imallett.FlashBang.Views.ViewGraphAudio;
+import imallett.FlashBang.Views.ViewGraphLight;
+import imallett.FlashBang.Measurement.MeasurerAudio;
 
 public class ThreadUpdate extends ThreadBase {
-	private final MainActivity _activity;
+	private final ActivityMain _activity;
 
 	private final DataStream _stream;
 
@@ -21,7 +21,7 @@ public class ThreadUpdate extends ThreadBase {
 	private final ViewGraphAudio _graph_audio;
 	private final ViewGraphLight _graph_light;
 
-	public ThreadUpdate(MainActivity activity, DataStream stream, MeasurerAudio audio, ViewGraphAudio graph_audio, ViewGraphLight graph_light) {
+	public ThreadUpdate(ActivityMain activity, DataStream stream, MeasurerAudio audio, ViewGraphAudio graph_audio, ViewGraphLight graph_light) {
 		_activity = activity;
 		_stream = stream;
 		_audio = audio;

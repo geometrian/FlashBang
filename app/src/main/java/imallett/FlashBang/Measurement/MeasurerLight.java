@@ -1,4 +1,4 @@
-package imallett.FlashBang.imallett.FlashBang.Measurement;
+package imallett.FlashBang.Measurement;
 
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;

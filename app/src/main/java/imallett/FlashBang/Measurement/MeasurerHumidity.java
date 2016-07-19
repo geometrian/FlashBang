@@ -1,4 +1,4 @@
-package imallett.FlashBang.imallett.FlashBang.Measurement;
+package imallett.FlashBang.Measurement;
 
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -7,20 +7,20 @@ import android.hardware.SensorManager;
 
 import imallett.FlashBang.DataStream;
 
-public class MeasurerTemperature extends MeasurerBase {
-	public float degC;
+public class MeasurerHumidity extends MeasurerBase {
+	public float RH;
 
-	public MeasurerTemperature(DataStream stream, SensorManager sensor_manager) {
+	public MeasurerHumidity(DataStream stream, SensorManager sensor_manager) {
 		super(stream);
 
-		final Sensor sensor = sensor_manager.getDefaultSensor(Sensor.TYPE_AMBIENT_TEMPERATURE);
+		final Sensor sensor = sensor_manager.getDefaultSensor(Sensor.TYPE_RELATIVE_HUMIDITY);
 		if (sensor!=null) {
 			sensor_manager.registerListener(
 				new SensorEventListener() {
 					@Override public void onAccuracyChanged(Sensor sensor, int accuracy) {}
 					@Override public void onSensorChanged(SensorEvent singleton_event) {
-						if (singleton_event.sensor.getType() == Sensor.TYPE_AMBIENT_TEMPERATURE) {
-							degC = singleton_event.values[0];
+						if (singleton_event.sensor.getType() == Sensor.TYPE_RELATIVE_HUMIDITY) {
+							RH = singleton_event.values[0];
 						}
 					}
 				},

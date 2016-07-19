@@ -1,4 +1,4 @@
-package imallett.FlashBang.imallett.FlashBang.Views;
+package imallett.FlashBang.Views;
 
 import android.content.Context;
 import android.graphics.Canvas;

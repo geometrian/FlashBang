@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:weightSum="1"
+              android:layout_margin="10dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Description"
+        android:layout_marginBottom="5dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="&quot;FlashBang&quot; calculates the distance to an event (e.g. a lightning strike) using the time delay between seeing it and hearing it.  The audio and visual signals are compared via the cross-correlation operation, extracting the most significant event.  The distance to this event is then calculated using the speed of light and the speed of sound.  Relevant corrections are applied when possible."
+        android:breakStrategy="high_quality"
+        android:layout_marginBottom="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Contribute / Contact"
+        android:layout_marginBottom="5dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="&quot;FlashBang&quot; was developed by Ian Mallett and is both free and open-source.  The source and project pages may be found at:"
+        android:breakStrategy="high_quality"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:autoLink="web"
+        android:text="https://github.com/imallett/FlashBang"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="If you would like to contact me, or contribute in another way (for example, by providing translations), send email to:"
+        android:breakStrategy="high_quality"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="5dp"
+        android:autoLink="email"
+        android:text="ian@geometrian.com"/>
+</LinearLayout>

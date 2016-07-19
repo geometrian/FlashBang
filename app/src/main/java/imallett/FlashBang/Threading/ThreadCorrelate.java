@@ -1,11 +1,11 @@
-package imallett.FlashBang.imallett.FlashBang.Threading;
+package imallett.FlashBang.Threading;
 
 import imallett.FlashBang.Config;
 import imallett.FlashBang.DataStream;
-import imallett.FlashBang.MainActivity;
+import imallett.FlashBang.Activities.ActivityMain;
 
 public class ThreadCorrelate extends ThreadBase {
-	private final MainActivity _activity;
+	private final ActivityMain _activity;
 
 	private final DataStream _stream;
 
@@ -16,7 +16,7 @@ public class ThreadCorrelate extends ThreadBase {
 
 	public volatile long delay = -1;
 
-	public ThreadCorrelate(MainActivity activity, DataStream stream) {
+	public ThreadCorrelate(ActivityMain activity, DataStream stream) {
 		_activity = activity;
 		_stream = stream;
 	}
