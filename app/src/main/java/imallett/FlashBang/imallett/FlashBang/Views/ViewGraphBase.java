@@ -1,12 +1,17 @@
-package imallett.FlashBang;
+package imallett.FlashBang.imallett.FlashBang.Views;
 
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+
+import imallett.FlashBang.Config;
+import imallett.FlashBang.DataStream;
+import imallett.FlashBang.R;
 
 public class ViewGraphBase extends SurfaceView implements SurfaceHolder.Callback {
 	protected Paint paint;
@@ -50,9 +55,9 @@ public class ViewGraphBase extends SurfaceView implements SurfaceHolder.Callback
 	}
 	protected void _drawBackground(Canvas canvas, boolean valid) {
 		if (valid) {
-			canvas.drawARGB(255,225,255,225);
+			canvas.drawColor( ContextCompat.getColor(getContext(), R.color.color_good) );
 		} else {
-			canvas.drawARGB(255,255,225,225);
+			canvas.drawColor( ContextCompat.getColor(getContext(), R.color.color_bad) );
 		}
 	}
 	protected void _drawAxes(Canvas canvas) {
@@ -68,7 +73,7 @@ public class ViewGraphBase extends SurfaceView implements SurfaceHolder.Callback
 		int h = canvas.getHeight();
 
 		long tn = data.t1_last;
-		long t0 = tn - (DataStream.N-1)*Config.BUCKET_NS;
+		long t0 = tn - (DataStream.N-1)* Config.BUCKET_NS;
 		long tr = System.nanoTime();
 		long tl = tr - (DataStream.N-1)*Config.BUCKET_NS;
 		long t;

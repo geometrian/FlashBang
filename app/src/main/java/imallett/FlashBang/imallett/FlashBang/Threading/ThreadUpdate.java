@@ -1,15 +1,12 @@
 package imallett.FlashBang.imallett.FlashBang.Threading;
 
 import android.graphics.Canvas;
-import android.support.v7.app.AppCompatActivity;
 import android.view.SurfaceView;
-import android.widget.TextView;
 
 import imallett.FlashBang.DataStream;
 import imallett.FlashBang.MainActivity;
-import imallett.FlashBang.R;
-import imallett.FlashBang.ViewGraphAudio;
-import imallett.FlashBang.ViewGraphLight;
+import imallett.FlashBang.imallett.FlashBang.Views.ViewGraphAudio;
+import imallett.FlashBang.imallett.FlashBang.Views.ViewGraphLight;
 import imallett.FlashBang.imallett.FlashBang.Measurement.MeasurerAudio;
 
 public class ThreadUpdate extends ThreadBase {
@@ -50,14 +47,12 @@ public class ThreadUpdate extends ThreadBase {
 			_redrawSurfaceView(_graph_light);
 
 			//Update calculation
-			_activity.runOnUiThread(new Runnable() {
-				@Override public void run() {
-					long ns = _activity.thread_correlate.delay;
-					double sec = ns / 1000000000.0;
-					double m = sec * 343.2;
-					_activity.text_distance.setText("Calculated distance: "+m);
-				}
-			});
+			_activity.runOnUiThread(new Runnable() { @Override public void run() {
+				long ns = _activity.thread_correlate.delay;
+				double sec = ns / 1000000000.0;
+				double m = sec * 343.2;
+				_activity.text_distance.setText("Calculated distance: "+m);
+			}});
 		}
 	}
 }

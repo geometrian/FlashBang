@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">FlashBang</string>
+
+    <string name="defstr">[unset string]</string>
+
+    <string name="factors_caption">Factors for calculation</string>
+
+    <string name="factor_no_sound">Sound (unavailable)</string>
+    <string name="factor_no_sol">Speed of light (unavailable)</string>
+    <string name="factor_no_humidity">Humidity (unavailable)</string>
+    <string name="factor_no_pressure">Pressure (unavailable)</string>
+    <string name="factor_no_temperature">Temperature (unavailable)</string>
+    <string name="factor_ok_sound">Sound: </string>
+    <string name="factor_ok_sol">Speed of light: </string>
+    <string name="factor_ok_humidity">Humidity: </string>
+    <string name="factor_ok_pressure">Pressure: </string>
+    <string name="factor_ok_temperature">Temperature: </string>
+
+    <string name="err_cannot_calc">Error: at minimum, light and sound must be available.</string>
 </resources>

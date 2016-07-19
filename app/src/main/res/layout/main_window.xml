@@ -37,10 +37,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Audio Input"
-                    android:id="@+id/caption_audio"
-                    />
-                <imallett.FlashBang.ViewGraphAudio
+                    android:text="Audio Input"/>
+                <imallett.FlashBang.imallett.FlashBang.Views.ViewGraphAudio
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/graph_audio"
@@ -60,9 +58,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Light Input"
-                    android:id="@+id/caption_light"/>
-                <imallett.FlashBang.ViewGraphLight
+                    android:text="Light Input"/>
+                <imallett.FlashBang.imallett.FlashBang.Views.ViewGraphLight
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/graph_light"
@@ -74,14 +71,46 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Calculation Factors\n  Foo"
-            android:id="@+id/textView"/>
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/factors_caption"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/factor_no_sound"
+            android:id="@+id/text_sound"
+            android:background="@color/color_bad"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/factor_no_sol"
+            android:id="@+id/text_sol"
+            android:background="@color/color_bad"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/factor_no_humidity"
+            android:id="@+id/text_humidity"
+            android:background="@color/color_bad"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/factor_no_pressure"
+            android:id="@+id/text_pressure"
+            android:background="@color/color_bad"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/factor_no_temperature"
+            android:id="@+id/text_temperature"
+            android:background="@color/color_bad"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="[default]"
-            android:id="@+id/text_distance"/>
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/err_cannot_calc"
+            android:id="@+id/text_distance"
+            android:background="@color/color_bad"/>
     </LinearLayout>
 
 </RelativeLayout>

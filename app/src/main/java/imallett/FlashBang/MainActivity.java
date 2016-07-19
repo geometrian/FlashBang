@@ -11,6 +11,8 @@ import imallett.FlashBang.imallett.FlashBang.Measurement.MeasurerAudio;
 import imallett.FlashBang.imallett.FlashBang.Measurement.MeasurerLight;
 import imallett.FlashBang.imallett.FlashBang.Threading.ThreadCorrelate;
 import imallett.FlashBang.imallett.FlashBang.Threading.ThreadUpdate;
+import imallett.FlashBang.imallett.FlashBang.Views.ViewGraphAudio;
+import imallett.FlashBang.imallett.FlashBang.Views.ViewGraphLight;
 
 public class MainActivity extends AppCompatActivity implements Button.OnClickListener {
 	private DataStream stream;
@@ -21,6 +23,11 @@ public class MainActivity extends AppCompatActivity implements Button.OnClickLis
 	private ThreadUpdate _thread_update;
 	public ThreadCorrelate thread_correlate;
 
+	public TextView text_factor_sound;
+	public TextView text_factor_sol;
+	public TextView text_factor_humidity;
+	public TextView text_factor_pressure;
+	public TextView text_factor_temperature;
 	public TextView text_distance;
 
 
@@ -34,7 +41,12 @@ public class MainActivity extends AppCompatActivity implements Button.OnClickLis
 		ViewGraphAudio graph_audio = (ViewGraphAudio)findViewById(R.id.graph_audio);
 		ViewGraphLight graph_light = (ViewGraphLight)findViewById(R.id.graph_light);
 
-		text_distance = (TextView)findViewById(R.id.text_distance);
+		text_factor_sound        = (TextView)findViewById(R.id.text_sound);
+		text_factor_sol          = (TextView)findViewById(R.id.text_sol);
+		text_factor_humidity     = (TextView)findViewById(R.id.text_humidity);
+		text_factor_pressure     = (TextView)findViewById(R.id.text_pressure);
+		text_factor_temperature  = (TextView)findViewById(R.id.text_temperature);
+		text_distance            = (TextView)findViewById(R.id.text_distance);
 
 		//button = (Button)this.findViewById(R.id.myButton);
 		//text = (TextView)this.findViewById(R.id.textView);
@@ -46,7 +58,6 @@ public class MainActivity extends AppCompatActivity implements Button.OnClickLis
 		stream = new DataStream();
 
 		audio = new MeasurerAudio(stream);
-		audio.start();
 		graph_audio.audio = audio;
 
 		light = new MeasurerLight( stream, (SensorManager)getSystemService(SENSOR_SERVICE) );
@@ -57,6 +68,19 @@ public class MainActivity extends AppCompatActivity implements Button.OnClickLis
 
 		_thread_update.start();
 		thread_correlate.start();
+
+		if (audio.valid) {
+			audio.start();
+			text_factor_sound.setText("  "+getString(R.string.factor_ok_sound));
+			text_factor_sound.setBackgroundColor(getColor(R.color.color_good));
+		}
+		if (light.valid) {
+			text_factor_sol.setText("  "+getString(R.string.factor_ok_sol));
+			text_factor_sol.setBackgroundColor(getColor(R.color.color_good));
+		}
+		if (audio.valid&&light.valid) {
+			text_distance.setBackgroundColor(getColor(R.color.color_good));
+		}
 	}
 	@Override protected void onDestroy() {
 		_thread_update.stop_requested = true;

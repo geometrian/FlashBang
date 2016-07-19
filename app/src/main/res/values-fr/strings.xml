@@ -1,4 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">FlashBang</string>
+
+    <string name="defstr">[chaîne indéfini]</string>
+
+    <string name="factors_caption">Facteurs pour le calcul</string>
+
+    <string name="factor_no_sound">Son (indisponible)</string>
+    <string name="factor_no_sol">Vitesse de la lumière (indisponible)</string>
+    <string name="factor_no_humidity">Humidité (indisponible)</string>
+    <string name="factor_no_pressure">Tension atmosphérique (indisponible)</string>
+    <string name="factor_no_temperature">Température (indisponible)</string>
+    <string name="factor_ok_sound">Son: </string>
+    <string name="factor_ok_sol">Vitesse de la lumière: </string>
+    <string name="factor_ok_humidity">Humidité: </string>
+    <string name="factor_ok_pressure">Tension atmosphérique: </string>
+    <string name="factor_ok_temperature">Température: </string>
+
+    <string name="err_cannot_calc">Erreur: par minimum, la lumière et le son doivent être disponibles.</string>
 </resources>
