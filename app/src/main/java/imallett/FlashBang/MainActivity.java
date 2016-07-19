@@ -3,8 +3,6 @@ package imallett.FlashBang;
 import android.hardware.SensorManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import imallett.FlashBang.imallett.FlashBang.Measurement.MeasurerAudio;
@@ -88,13 +86,6 @@ public class MainActivity extends AppCompatActivity {
 			text_value_delay.setBackgroundColor(getColor(R.color.color_good));
 			text_value_dist.setBackgroundColor(getColor(R.color.color_good));
 		}
-
-		/*if (audio.valid) {
-			text_factor_sound.setBackgroundColor(getColor(R.color.color_good));
-		}
-		if (light.valid) {
-			text_factor_sol.setBackgroundColor(getColor(R.color.color_good));
-		}*/
 	}
 	@Override protected void onDestroy() {
 		_thread_update.stop_requested = true;

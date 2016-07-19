@@ -44,15 +44,6 @@ public class ViewGraphBase extends SurfaceView implements SurfaceHolder.Callback
 		paint.setAntiAlias(true);
 	}
 
-	void _drawPrepare(Canvas canvas) {
-		/*if (_xs!=null); else {
-			int w = canvas.getWidth();
-			for (int i=0;i<DataStream.N;++i) {
-				float x = (i+0.5f) / DataStream.N * w;
-				_xs[i] = x;
-			}
-		}*/
-	}
 	protected void _drawBackground(Canvas canvas, boolean valid) {
 		if (valid) {
 			canvas.drawColor( ContextCompat.getColor(getContext(), R.color.color_good) );

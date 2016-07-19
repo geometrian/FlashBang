@@ -4,18 +4,21 @@
 
     <string name="defstr">[chaîne indéfini]</string>
 
-    <string name="factors_caption">Facteurs pour le calcul</string>
+    <string name="caption_input">Les données d\'entrée:</string>
+    <string name="caption_input_audio">Entrée auditive:</string>
+    <string name="caption_input_light">Entrée lumineuse:</string>
+    <string name="caption_input_press">Pression atmosphérique:</string>
+    <string name="caption_input_temp">Température:</string>
+    <string name="caption_input_RH">Humidité relative:</string>
+    <string name="caption_input_nodelay">Retard: ne peut pas calculer sans l\'audio)</string>
+    <string name="caption_input_okdelay">Retard:</string>
 
-    <string name="factor_no_sound">Son (indisponible)</string>
-    <string name="factor_no_sol">Vitesse de la lumière (indisponible)</string>
-    <string name="factor_no_humidity">Humidité (indisponible)</string>
-    <string name="factor_no_pressure">Tension atmosphérique (indisponible)</string>
-    <string name="factor_no_temperature">Température (indisponible)</string>
-    <string name="factor_ok_sound">Son: </string>
-    <string name="factor_ok_sol">Vitesse de la lumière: </string>
-    <string name="factor_ok_humidity">Humidité: </string>
-    <string name="factor_ok_pressure">Tension atmosphérique: </string>
-    <string name="factor_ok_temperature">Température: </string>
+    <string name="caption_input_derived">Quantités dérivées:</string>
+    <string name="caption_derived_n">Indice de réfraction de l\'air:</string>
+    <string name="caption_derived_sol">Vitesse de la lumière dans l\'air:</string>
+    <string name="caption_derived_sos">Vitesse du son dans l\'air:</string>
 
-    <string name="err_cannot_calc">Erreur: par minimum, la lumière et le son doivent être disponibles.</string>
+    <string name="caption_dist">Distance calculé:</string>
+    <string name="caption_dist_noval">Entrée: (ne peut pas calculer sans l\'audio)</string>
+    <string name="caption_dist_okval">Entrée:</string>
 </resources>

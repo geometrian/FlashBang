@@ -1,7 +1,5 @@
 package imallett.FlashBang;
 
-import android.util.Log;
-
 public class DataStream {
 	public static final int N = Config.STAT_RATE*Config.MAX_DELAY;
 
@@ -38,11 +36,6 @@ public class DataStream {
 			data[4] /= n_t++;
 			valid[4] = true;
 		}
-
-		/*public float getMaxVolume() { return data[0]; }
-		public float getMaxLux() { return data[1]; }
-		public float getAvgHumidity() { return data[2]; }
-		public float getAvgTemperature() { return data[3]; }*/
 
 		@Override public String toString() { return "([corr], v,l,h,p,t)=(["+data[5]+"], "+data[0]+","+data[1]+","+data[2]+","+data[3]+","+data[4]+")"; }
 	}

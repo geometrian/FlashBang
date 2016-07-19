@@ -13,9 +13,7 @@ public class ThreadCorrelate extends ThreadBase {
 
 	public volatile long delay = -1;
 
-	public ThreadCorrelate(DataStream stream) {
-		_stream = stream;
-	}
+	public ThreadCorrelate(DataStream stream) { _stream=stream; }
 
 	private void _subtractMeansCalcDenom() {
 		//Subtract off means

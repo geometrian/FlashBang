@@ -15,7 +15,6 @@ public class ViewGraphLight extends ViewGraphBase {
 
 	@Override public void onDraw(Canvas canvas) {
 		try {
-			super._drawPrepare(canvas);
 			synchronized(this) {
 				super._drawBackground(canvas,light.valid);
 				super._drawAxes(canvas);

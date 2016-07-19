@@ -15,7 +15,6 @@ public class ViewGraphAudio extends ViewGraphBase {
 
 	@Override public void onDraw(Canvas canvas) {
 		try {
-			super._drawPrepare(canvas);
 			synchronized(this) {
 				super._drawBackground(canvas,audio.valid);
 				super._drawAxes(canvas);
@@ -25,6 +24,4 @@ public class ViewGraphAudio extends ViewGraphBase {
 			}
 		} catch (NullPointerException e) {} //Workaround for moronic bugs in Android Studio
 	}
-
-
 }

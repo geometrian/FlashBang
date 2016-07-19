@@ -6,13 +6,6 @@ public class Config {
 
 	public static final int MAX_DELAY = 10; //data length, in seconds
 
-	/*public static double roundTo(double value, int digits) {
-		for (int i=0;i<digits;++i) value*=10.0;
-		value = Math.round(value);
-		for (int i=0;i<digits;++i) value/=10.0;
-		return value;
-	}*/
-
 	public static String localizePressure(double Pa) {
 		return String.format("%.4f kPa",Pa/1000.0);
 	}

@@ -3,18 +3,21 @@
 
     <string name="defstr">[unset string]</string>
 
-    <string name="factors_caption">Factors for calculation</string>
+    <string name="caption_input">Input values:</string>
+    <string name="caption_input_audio">Audio input:</string>
+    <string name="caption_input_light">Light input:</string>
+    <string name="caption_input_press">Pressure:</string>
+    <string name="caption_input_temp">Temperature:</string>
+    <string name="caption_input_RH">Relative humidity:</string>
+    <string name="caption_input_nodelay">Delay: (cannot calculate without audio)</string>
+    <string name="caption_input_okdelay">Delay:</string>
 
-    <string name="factor_no_sound">Sound (unavailable)</string>
-    <string name="factor_no_sol">Speed of light (unavailable)</string>
-    <string name="factor_no_humidity">Humidity (unavailable)</string>
-    <string name="factor_no_pressure">Pressure (unavailable)</string>
-    <string name="factor_no_temperature">Temperature (unavailable)</string>
-    <string name="factor_ok_sound">Sound: </string>
-    <string name="factor_ok_sol">Speed of light: </string>
-    <string name="factor_ok_humidity">Humidity: </string>
-    <string name="factor_ok_pressure">Pressure: </string>
-    <string name="factor_ok_temperature">Temperature: </string>
+    <string name="caption_derived">Derived quantities:</string>
+    <string name="caption_derived_n">Air refractive index:</string>
+    <string name="caption_derived_sol">Speed of light in air:</string>
+    <string name="caption_derived_sos">Speed of sound in air:</string>
 
-    <string name="err_cannot_calc">Error: at minimum, light and sound must be available.</string>
+    <string name="caption_dist">Calculated distance:</string>
+    <string name="caption_dist_noval">Value: (cannot calculate without audio)</string>
+    <string name="caption_dist_okval">Value:</string>
 </resources>
