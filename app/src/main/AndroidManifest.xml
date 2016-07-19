@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="imallett.FlashBang">
 
+    <!-- List: https://developer.android.com/guide/topics/manifest/uses-feature-element.html#hw-features -->
+    <uses-feature android:name="android.hardware.microphone"/>
+    <uses-feature android:name="android.hardware.sensor.light"/>
+    <!-- List: https://developer.android.com/reference/android/Manifest.permission.html -->
+    <!-- Yes, RECORD_AUDIO, not CAPTURE_AUDIO_OUTPUT -->
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
 
     <application

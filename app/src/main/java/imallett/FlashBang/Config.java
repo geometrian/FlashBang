@@ -1,7 +1,5 @@
 package imallett.FlashBang;
 
-import android.widget.RadioButton;
-
 public class Config {
 	public static final int STAT_RATE = 100; //samples/sec; rate at which statistics are calculated and stored
 	public static final long BUCKET_NS = 1000000000 / STAT_RATE;
