@@ -8,31 +8,37 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import imallett.FlashBang.imallett.FlashBang.Measurement.MeasurerAudio;
+import imallett.FlashBang.imallett.FlashBang.Measurement.MeasurerHumidity;
 import imallett.FlashBang.imallett.FlashBang.Measurement.MeasurerLight;
+import imallett.FlashBang.imallett.FlashBang.Measurement.MeasurerPressure;
+import imallett.FlashBang.imallett.FlashBang.Measurement.MeasurerTemperature;
 import imallett.FlashBang.imallett.FlashBang.Threading.ThreadCorrelate;
 import imallett.FlashBang.imallett.FlashBang.Threading.ThreadUpdate;
 import imallett.FlashBang.imallett.FlashBang.Views.ViewGraphAudio;
 import imallett.FlashBang.imallett.FlashBang.Views.ViewGraphLight;
 
-public class MainActivity extends AppCompatActivity implements Button.OnClickListener {
+public class MainActivity extends AppCompatActivity {
 	private DataStream stream;
 
-	private MeasurerAudio audio;
-	private MeasurerLight light;
+	public MeasurerAudio audio;
+	public MeasurerLight light;
+	public MeasurerHumidity humidity;
+	public MeasurerPressure pressure;
+	public MeasurerTemperature temperature;
 
 	private ThreadUpdate _thread_update;
 	public ThreadCorrelate thread_correlate;
 
-	public TextView text_factor_sound;
-	public TextView text_factor_sol;
-	public TextView text_factor_humidity;
-	public TextView text_factor_pressure;
-	public TextView text_factor_temperature;
-	public TextView text_distance;
+	public TextView text_value_pres;
+	public TextView text_value_temp;
+	public TextView text_value_RH;
+	public TextView text_value_delay;
 
+	public TextView text_value_airn;
+	public TextView text_value_sol;
+	public TextView text_value_sos;
 
-	//Button button;
-	//TextView text;
+	public TextView text_value_dist;
 
 	@Override protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -41,27 +47,33 @@ public class MainActivity extends AppCompatActivity implements Button.OnClickLis
 		ViewGraphAudio graph_audio = (ViewGraphAudio)findViewById(R.id.graph_audio);
 		ViewGraphLight graph_light = (ViewGraphLight)findViewById(R.id.graph_light);
 
-		text_factor_sound        = (TextView)findViewById(R.id.text_sound);
-		text_factor_sol          = (TextView)findViewById(R.id.text_sol);
-		text_factor_humidity     = (TextView)findViewById(R.id.text_humidity);
-		text_factor_pressure     = (TextView)findViewById(R.id.text_pressure);
-		text_factor_temperature  = (TextView)findViewById(R.id.text_temperature);
-		text_distance            = (TextView)findViewById(R.id.text_distance);
+		text_value_pres  = (TextView)findViewById(R.id.text_value_pres);
+		text_value_temp  = (TextView)findViewById(R.id.text_value_temp);
+		text_value_RH    = (TextView)findViewById(R.id.text_value_RH);
+		text_value_delay = (TextView)findViewById(R.id.text_value_delay);
 
-		//button = (Button)this.findViewById(R.id.myButton);
-		//text = (TextView)this.findViewById(R.id.textView);
-		//button.setOnClickListener(this);
+		text_value_airn = (TextView)findViewById(R.id.text_value_airn);
+		text_value_sol  = (TextView)findViewById(R.id.text_value_sol);
+		text_value_sos  = (TextView)findViewById(R.id.text_value_sos);
 
-		//textLIGHT_available = (TextView)findViewById(R.id.LIGHT_available);
-		//textLIGHT_reading   = (TextView)findViewById(R.id.LIGHT_reading);
+		text_value_dist = (TextView)findViewById(R.id.text_value_dist);
 
 		stream = new DataStream();
 
+		SensorManager sensor_manager = (SensorManager)getSystemService(SENSOR_SERVICE);
+
 		audio = new MeasurerAudio(stream);
 		graph_audio.audio = audio;
+		audio.start();
 
-		light = new MeasurerLight( stream, (SensorManager)getSystemService(SENSOR_SERVICE) );
+		light = new MeasurerLight(stream,sensor_manager);
 		graph_light.light = light;
+
+		humidity = new MeasurerHumidity(stream, sensor_manager);
+
+		pressure = new MeasurerPressure(stream, sensor_manager);
+
+		temperature = new MeasurerTemperature(stream, sensor_manager);
 
 		_thread_update = new ThreadUpdate(this, stream, audio, graph_audio,graph_light);
 		thread_correlate = new ThreadCorrelate(stream);
@@ -69,18 +81,20 @@ public class MainActivity extends AppCompatActivity implements Button.OnClickLis
 		_thread_update.start();
 		thread_correlate.start();
 
-		if (audio.valid) {
-			audio.start();
-			text_factor_sound.setText("  "+getString(R.string.factor_ok_sound));
+		if (humidity.valid) text_value_RH.setBackgroundColor(getColor(R.color.color_good));
+		if (pressure.valid) text_value_pres.setBackgroundColor(getColor(R.color.color_good));
+		if (temperature.valid) text_value_temp.setBackgroundColor(getColor(R.color.color_good));
+		if (audio.valid && light.valid) {
+			text_value_delay.setBackgroundColor(getColor(R.color.color_good));
+			text_value_dist.setBackgroundColor(getColor(R.color.color_good));
+		}
+
+		/*if (audio.valid) {
 			text_factor_sound.setBackgroundColor(getColor(R.color.color_good));
 		}
 		if (light.valid) {
-			text_factor_sol.setText("  "+getString(R.string.factor_ok_sol));
 			text_factor_sol.setBackgroundColor(getColor(R.color.color_good));
-		}
-		if (audio.valid&&light.valid) {
-			text_distance.setBackgroundColor(getColor(R.color.color_good));
-		}
+		}*/
 	}
 	@Override protected void onDestroy() {
 		_thread_update.stop_requested = true;
@@ -97,9 +111,5 @@ public class MainActivity extends AppCompatActivity implements Button.OnClickLis
 		audio.stop();
 
 		super.onDestroy();
-	}
-
-	@Override public void onClick(View view) {
-			//text.setText("You pressed the button!");
 	}
 }

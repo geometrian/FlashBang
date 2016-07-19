@@ -12,8 +12,8 @@ public class MeasurerLight extends MeasurerBase {
 	private  long _last_advances = -1;
 
 	private void _init(SensorManager sensor_manager) {
-		final Sensor light_sensor = sensor_manager.getDefaultSensor(Sensor.TYPE_LIGHT);
-		if (light_sensor!=null) {
+		final Sensor sensor = sensor_manager.getDefaultSensor(Sensor.TYPE_LIGHT);
+		if (sensor!=null) {
 			sensor_manager.registerListener(
 				new SensorEventListener() {
 					@Override public void onAccuracyChanged(Sensor sensor, int accuracy) {}
@@ -22,7 +22,7 @@ public class MeasurerLight extends MeasurerBase {
 							synchronized(stream) {
 								float temp = singleton_event.values[0];
 								float now_lux;
-								if (temp>0.0f) now_lux=(float)( Math.log(temp) / Math.log(light_sensor.getMaximumRange()) );
+								if (temp>0.0f) now_lux=(float)( Math.log(temp) / Math.log(sensor.getMaximumRange()) );
 								else           now_lux=0.0f;
 
 								stream.updateLux( System.nanoTime(), now_lux );
@@ -43,7 +43,7 @@ public class MeasurerLight extends MeasurerBase {
 						}
 					}
 				},
-				light_sensor,
+				sensor,
 				SensorManager.SENSOR_DELAY_FASTEST
 			);
 

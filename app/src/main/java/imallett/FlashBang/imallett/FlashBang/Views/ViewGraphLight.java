@@ -21,7 +21,7 @@ public class ViewGraphLight extends ViewGraphBase {
 				super._drawAxes(canvas);
 				synchronized(light.stream) {
 					super._drawGraph(canvas,light.stream,1);
-					super._drawGraph(canvas,light.stream,5);
+					//super._drawGraph(canvas,light.stream,5);
 				}
 			}
 		} catch (NullPointerException e) {} //Workaround for moronic bugs in Android Studio

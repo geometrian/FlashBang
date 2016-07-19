@@ -9,14 +9,19 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="imallett.FlashBang.MainActivity">
 
-
-
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Input values:"/>
+
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
@@ -71,45 +76,59 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/factors_caption"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/factor_no_sound"
-            android:id="@+id/text_sound"
+            android:text="@string/defstr"
+            android:id="@+id/text_value_pres"
             android:background="@color/color_bad"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/factor_no_sol"
-            android:id="@+id/text_sol"
+            android:text="@string/defstr"
+            android:id="@+id/text_value_temp"
             android:background="@color/color_bad"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/factor_no_humidity"
-            android:id="@+id/text_humidity"
+            android:text="@string/defstr"
+            android:id="@+id/text_value_RH"
             android:background="@color/color_bad"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/factor_no_pressure"
-            android:id="@+id/text_pressure"
-            android:background="@color/color_bad"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/factor_no_temperature"
-            android:id="@+id/text_temperature"
+            android:text="@string/defstr"
+            android:id="@+id/text_value_delay"
             android:background="@color/color_bad"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/err_cannot_calc"
-            android:id="@+id/text_distance"
+            android:text="Derived quantities:"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/defstr"
+            android:id="@+id/text_value_airn"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/defstr"
+            android:id="@+id/text_value_sol"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/defstr"
+            android:id="@+id/text_value_sos"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Calculated distance:"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/defstr"
+            android:id="@+id/text_value_dist"
             android:background="@color/color_bad"/>
     </LinearLayout>
 
