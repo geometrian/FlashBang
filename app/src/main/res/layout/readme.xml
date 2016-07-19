@@ -9,13 +9,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Description"
+        android:text="@string/text_readme1"
         android:layout_marginBottom="5dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="&quot;FlashBang&quot; calculates the distance to an event (e.g. a lightning strike) using the time delay between seeing it and hearing it. The audio and visual signals are compared via the cross-correlation operation, extracting the most significant event. The distance to this event is then calculated using the speed of light and the speed of sound. Relevant corrections are applied when possible."
+        android:text="@string/text_readme2"
         android:breakStrategy="high_quality"
         android:layout_marginBottom="20dp"/>
 
@@ -23,13 +23,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Contribute / Contact"
+        android:text="@string/text_readme3"
         android:layout_marginBottom="5dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="&quot;FlashBang&quot; was developed by Ian Mallett and is both free and open-source. The source and project pages can be found at:"
+        android:text="@string/text_readme4"
         android:breakStrategy="high_quality"/>
     <TextView
         android:layout_width="wrap_content"
@@ -42,7 +42,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="If you would like to contact me, or contribute in another way (for example, by providing translations), send email to:"
+        android:text="@string/text_readme5"
         android:breakStrategy="high_quality"/>
     <TextView
         android:layout_width="wrap_content"

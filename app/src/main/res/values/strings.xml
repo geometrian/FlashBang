@@ -28,4 +28,10 @@
 
     <string name="caption_button_options">Options</string>
     <string name="caption_button_readme">View readme</string>
+
+    <string name="text_readme1">Description</string>
+    <string name="text_readme2">&quot;FlashBang&quot; calculates the distance to an event (e.g. a lightning strike) using the time delay between seeing it and hearing it. The audio and visual signals are compared via the cross-correlation operation, extracting the most significant event. The distance to this event is then calculated using the speed of light and the speed of sound. Relevant corrections are applied when possible.</string>
+    <string name="text_readme3">Contribute / Contact</string>
+    <string name="text_readme4">&quot;FlashBang&quot; was developed by Ian Mallett and is both free and open-source. The source and project pages can be found at:</string>
+    <string name="text_readme5">If you would like to contact me, or contribute in another way (for example, by providing translations), send email to:</string>
 </resources>

@@ -25,4 +25,10 @@
 
     <string name="caption_button_options">Options</string>
     <string name="caption_button_readme">Voyez readme</string>
+
+    <string name="text_readme1">Description</string>
+    <string name="text_readme2">&quot;FlashBang&quot; calcule la distance à un événement (par exemple, un éclair) en utilisant le temps de retard entre le voir et l'entendre. Les signaux sonores et visuels sont comparés par l'opération de corrélation croisée, l'extraction de l'événement le plus significatif. La distance à cet événement est ensuite calculée en utilisant la vitesse de la lumière et de la vitesse du son. Corrections pertinentes sont appliquées lorsque cela est possible.</string>
+    <string name="text_readme3">Contribuez / Contactez</string>
+    <string name="text_readme4">&quot;FlashBang&quot; a été développé par Ian Mallett et est à la fois des logiciels libre et à code source ouvert. Les pages de source et de projet peuvent être trouvés à l'adresse:</string>
+    <string name="text_readme5">Si vous souhaitez me contacter, ou de contribuer d'une autre manière (par exemple, fournir des traductions), envoyer l'email à:</string>
 </resources>
