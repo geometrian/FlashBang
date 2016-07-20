@@ -1,6 +1,8 @@
 # FlashBang
 ## Automatic Android distance calculator using time delay between light and sound
 
+[<img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" width="200px"/>](https://play.google.com/store/apps/details?id=imallett.FlashBang)
+
 ### Introduction
 
 When an event happens (for example, a lightning strike), it can produce light and sound.  Since light travels much faster than sound, you see the event before you hear it.  Using the time difference, you can actually calculate the distance.
