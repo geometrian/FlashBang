@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name=    "name_app">FlashBang</string>
+    <string name="name_options">FlashBang (Options)</string>
+    <string name= "name_readme">FlashBang (Lisez-moi)</string>
+
     <string name="defstr">[chaîne indéfini]</string>
 
     <string name="caption_input">Les données d\'entrée:</string>
@@ -31,7 +35,4 @@
     <string name="text_readme3">Contribuez / Contactez</string>
     <string name="text_readme4">&quot;FlashBang&quot; a été développé par Ian Mallett et est à la fois des logiciels libre et à code source ouvert. Les pages de source et de projet peuvent être trouvés à l\'adresse:</string>
     <string name="text_readme5">Si vous souhaitez me contacter, ou de contribuer d\'une autre manière (par exemple, fournir des traductions), envoyer l\'email à:</string>
-    <string name="name_app">FlashBang</string>
-    <string name="name_options">FlashBang (Options)</string>
-    <string name="name_readme">FlashBang (Lisez-moi)</string>
 </resources>
