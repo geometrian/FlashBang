@@ -1,7 +1,7 @@
 <resources>
-    <string name=    "name_app" translatable="false">FlashBang</string>
-    <string name="name_options" translatable="false">FlashBang (Options)</string>
-    <string name= "name_readme" translatable="false">FlashBang (Readme)</string>
+    <string name=    "name_app">FlashBang</string>
+    <string name="name_options">FlashBang (Options)</string>
+    <string name= "name_readme">FlashBang (Readme)</string>
 
     <string name="defstr">[unset string]</string>
 

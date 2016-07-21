@@ -17,12 +17,20 @@ By contrast, FlashBang does the detection and correlation automatically.  When p
 
 To use, simply point your Android device's light sensor at the event and observe.  FlashBang will attempt to discern an event's anomalous sound and light and, on detection, will automatically produce the readout of the distance.  The associated readouts tell you which factors were used in the calculation.
 
-### Contribute / Contact
+### Contribute / Contact / Credits
 
-FlashBang is developed by Ian Mallett and is both free and open-source. The source and project pages can be found at:
+FlashBang was developed primarily by Ian Mallett.  Some translations have been supplied via the nice [Ackuna](http://ackuna.com/translate-/flashbang) community project.  FlashBang is both free and open-source software.  The source can be found at:
 
 > [https://github.com/imallett/FlashBang](https://github.com/imallett/FlashBang)
 
-To help recoup my $25 Android developer fee, consider donating on my website ([geometrian.com](http://geometrian.com/index.php)).  If you would like to contact me, or contribute in another way (for example, by reporting bugs or adding/improving translations), send email to:
+To help recoup my $25 Android developer fee, consider donating on my website ([geometrian.com](http://geometrian.com/index.php)).  If you would like to contact me, or contribute in another way (for example, by reporting bugs), send email to:
 
 > ian [^at^] geometrian.com
+
+### Languages
+
+FlashBang is available in several languages.  I translated it (probably badly) into French; a translation project on [Ackuna](http://ackuna.com/translate-/flashbang) has also translated it into Italian, Japanese, and Portuguese.  You can also contact by email to help!
+
+### License / Disclaimer
+
+FlashBang is licensed under the extremely permissive MIT license.  Standard disclaimers apply; in particular, I cannot validate translations' quality.
