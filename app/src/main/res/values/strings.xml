@@ -18,7 +18,7 @@
     <string name="caption_input_sensitivity">&#032;&#032;Sensitivity:</string>
 
     <string name="caption_derived">Derived quantities:</string>
-    <string name="caption_derived_n">&#032;&#032;Air refractive index:</string>
+    <string name=  "caption_derived_n">&#032;&#032;Air refractive index:</string>
     <string name="caption_derived_sol">&#032;&#032;Speed of light in air:</string>
     <string name="caption_derived_sos">&#032;&#032;Speed of sound in air:</string>
 
@@ -35,4 +35,42 @@
     <string name="text_readme3">Contribute / Contact</string>
     <string name="text_readme4">&quot;FlashBang&quot; was developed by Ian Mallett and is both free and open-source. The source and project pages can be found at:</string>
     <string name="text_readme5">If you would like to contact me, or contribute in another way (for example, by providing translations), send email to:</string>
+
+    <string name="units_pres">Pressure Units</string>
+    <string name=   "units_pres_Pa">Pascals (Pa)</string>
+    <string name=  "units_pres_kPa">Kilopascals (kPa)</string>
+    <string name=  "units_pres_hPa">Hectopascals (hPa)</string>
+    <string name=  "units_pres_psi">Pounds/Sq. Inch (psi)</string>
+    <string name=  "units_pres_bar">Bar (bar)</string>
+    <string name= "units_pres_dbar">Decibar (dbar)</string>
+    <string name= "units_pres_mbar">Millibar (mbar)</string>
+    <string name=   "units_pres_Ba">Dyne per centimetre, barye (Ba)</string>
+    <string name=  "units_pres_atm">Standard atmospheres (atm)</string>
+    <string name= "units_pres_Torr">Millimetre of Mercury,\ntorr (Torr)</string>
+    <string name="units_pres_mTorr">Micrometre of Mercury,\nmillitorr (mTorr, micron)</string>
+
+    <string name="units_temp">Temperature Units</string>
+    <string name= "units_temp_C">Degrees Celsius (°C)</string>
+    <string name= "units_temp_K">Degrees Kelvin (°K)</string>
+    <string name= "units_temp_F">Degrees Fahrenheit (°F)</string>
+    <string name= "units_temp_R">Degrees Rankine (°R)</string>
+    <string name="units_temp_De">Degrees Delisle (°De)</string>
+    <string name= "units_temp_N">Degrees Newton (°N)</string>
+    <string name="units_temp_Re">Degrees Réaumur (°Ré)</string>
+    <string name="units_temp_Ro">Degrees Rømer (°Rø)</string>
+
+    <string name="units_dist">Distance Units</string>
+    <string name= "units_dist_m">Metres (m)</string>
+    <string name="units_dist_km">Kilometres (km)</string>
+    <string name="units_dist_ft">Feet (ft)</string>
+    <string name="units_dist_yd">Yards (yd)</string>
+    <string name="units_dist_mi">Miles (mi)</string>
+
+    <string name="units_speed">Speed Units</string>
+    <string name= "units_speed_m_per_sec">Metres per second (m/s)</string>
+    <string name="units_speed_km_per_sec">Kilometres per second (km/sec)</string>
+    <string name= "units_speed_km_per_hr">Kilometres per hour (kph, km/hr)</string>
+    <string name="units_speed_ft_per_sec">Feet per second (fps, ft/s)</string>
+    <string name= "units_speed_mi_per_hr">Miles per hour (mph, mi/hr)</string>
+    <string name=        "units_speed_kn">Knots (kn, kt)</string>
 </resources>

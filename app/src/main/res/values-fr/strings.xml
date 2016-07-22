@@ -18,7 +18,7 @@
     <string name="caption_input_sensitivity">&#032;&#032;Sensibilité:</string>
 
     <string name="caption_derived">Quantités dérivées:</string>
-    <string name="caption_derived_n">&#032;&#032;Indice de réfraction de l\'air:</string>
+    <string name=  "caption_derived_n">&#032;&#032;Indice de réfraction de l\'air:</string>
     <string name="caption_derived_sol">&#032;&#032;Vitesse de la lumière dans l\'air:</string>
     <string name="caption_derived_sos">&#032;&#032;Vitesse du son dans l\'air:</string>
 

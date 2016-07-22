@@ -5,14 +5,14 @@
     android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pressure Units"
+            android:text="@string/units_pres"
             android:textAppearance="?android:attr/textAppearanceMedium"/>
         <RadioGroup
             android:id="@+id/radio_pres"
@@ -23,60 +23,60 @@
                 android:id="@+id/radio_pres_Pa"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Pascals (Pa)"
+                android:text="@string/units_pres_Pa"
                 android:checked="true"/>
             <RadioButton
                 android:id="@+id/radio_pres_kPa"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Kilo-Pascals (kPa)"/>
+                android:text="@string/units_pres_kPa"/>
             <RadioButton
                 android:id="@+id/radio_pres_hPa"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hecto-Pascals (hPa)"/>
+                android:text="@string/units_pres_hPa"/>
             <RadioButton
                 android:id="@+id/radio_pres_psi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Pounds/Sq. Inch (psi)"/>
+                android:text="@string/units_pres_psi"/>
             <RadioButton
                 android:id="@+id/radio_pres_bar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Bar (bar)"/>
+                android:text="@string/units_pres_bar"/>
             <RadioButton
                 android:id="@+id/radio_pres_dbar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Decibar (dbar)"/>
+                android:text="@string/units_pres_dbar"/>
             <RadioButton
                 android:id="@+id/radio_pres_mbar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Millibar (mbar)"/>
+                android:text="@string/units_pres_mbar"/>
             <RadioButton
                 android:id="@+id/radio_pres_Ba"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Dyne per centimetre, barye (Ba)"/>
+                android:text="@string/units_pres_Ba"/>
             <RadioButton
                 android:id="@+id/radio_pres_atm"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Standard Atmospheres (atm)"/>
+                android:text="@string/units_pres_atm"/>
             <RadioButton
                 android:id="@+id/radio_pres_Torr"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Millimetre of Mercury,\ntorr (Torr)"
+                android:text="@string/units_pres_Torr"
                 android:layout_marginBottom="5dp"
                 android:layout_marginTop="5dp"/>
             <RadioButton
                 android:id="@+id/radio_pres_mTorr"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Micrometre of Mercury,\nmillitorr (mTorr, micron)"
+                android:text="@string/units_pres_mTorr"
                 android:layout_marginBottom="5dp"
                 android:layout_marginTop="5dp"/>
         </RadioGroup>
@@ -85,7 +85,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:text="Temperature Units"
+            android:text="@string/units_temp"
             android:textAppearance="?android:attr/textAppearanceMedium"/>
         <RadioGroup
             android:id="@+id/radio_temp"
@@ -96,50 +96,50 @@
                 android:id="@+id/radio_temp_C"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Degrees Celsius (°C)"
+                android:text="@string/units_temp_C"
                 android:checked="true"/>
             <RadioButton
                 android:id="@+id/radio_temp_K"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Degrees Kelvin (°K)"/>
+                android:text="@string/units_temp_K"/>
             <RadioButton
                 android:id="@+id/radio_temp_F"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Degrees Fahrenheit (°F)"/>
+                android:text="@string/units_temp_F"/>
             <RadioButton
                 android:id="@+id/radio_temp_R"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Degrees Rankine (°R)"/>
+                android:text="@string/units_temp_R"/>
             <RadioButton
                 android:id="@+id/radio_temp_De"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Degrees Delisle (°De)"/>
+                android:text="@string/units_temp_De"/>
             <RadioButton
                 android:id="@+id/radio_temp_N"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Degrees Newton (°N)"/>
+                android:text="@string/units_temp_N"/>
             <RadioButton
                 android:id="@+id/radio_temp_Re"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Degrees Réaumur (°Ré)"/>
+                android:text="@string/units_temp_Re"/>
             <RadioButton
                 android:id="@+id/radio_temp_Ro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Degrees Rømer (°Rø)"/>
+                android:text="@string/units_temp_Ro"/>
         </RadioGroup>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:text="Distance Units"
+            android:text="@string/units_dist"
             android:textAppearance="?android:attr/textAppearanceMedium"/>
         <RadioGroup
             android:id="@+id/radio_dist"
@@ -150,35 +150,35 @@
                 android:id="@+id/radio_dist_m"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Metres (m)"
+                android:text="@string/units_dist_m"
                 android:checked="true"/>
             <RadioButton
                 android:id="@+id/radio_dist_km"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Kilometres (km)"/>
+                android:text="@string/units_dist_km"/>
             <RadioButton
                 android:id="@+id/radio_dist_ft"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Feet (ft)"/>
+                android:text="@string/units_dist_ft"/>
             <RadioButton
                 android:id="@+id/radio_dist_yd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Yards (yd)"/>
+                android:text="@string/units_dist_yd"/>
             <RadioButton
                 android:id="@+id/radio_dist_mi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Miles (mi)"/>
+                android:text="@string/units_dist_mi"/>
         </RadioGroup>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:text="Speed Units"
+            android:text="@string/units_speed"
             android:textAppearance="?android:attr/textAppearanceMedium"/>
         <RadioGroup
             android:id="@+id/radio_speed"
@@ -190,33 +190,33 @@
                 android:id="@+id/radio_speed_m_per_sec"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Metres per second (m/s)"
+                android:text="@string/units_speed_m_per_sec"
                 android:checked="true"/>
             <RadioButton
                 android:id="@+id/radio_speed_km_per_sec"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Kilometres per second (km/sec)"/>
+                android:text="@string/units_speed_km_per_sec"/>
             <RadioButton
                 android:id="@+id/radio_speed_km_per_hr"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Kilometres per hour (kph, km/hr)"/>
+                android:text="@string/units_speed_km_per_hr"/>
             <RadioButton
                 android:id="@+id/radio_speed_ft_per_sec"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Feet per second (fps, ft/s)"/>
+                android:text="@string/units_speed_ft_per_sec"/>
             <RadioButton
                 android:id="@+id/radio_speed_mi_per_hr"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Miles per hour (mph, mi/hr)"/>
+                android:text="@string/units_speed_mi_per_hr"/>
             <RadioButton
                 android:id="@+id/radio_speed_knots"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Knots (kn, kt)"/>
+                android:text="@string/units_speed_kn"/>
         </RadioGroup>
     </LinearLayout>
 </ScrollView>

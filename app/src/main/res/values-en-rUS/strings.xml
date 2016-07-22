@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name=   "units_pres_Ba">Dyne per centimeter, barye (Ba)</string>
+    <string name= "units_pres_Torr">Millimeter of Mercury,\ntorr (Torr)</string>
+    <string name="units_pres_mTorr">Micrometer of Mercury,\nmillitorr (mTorr, micron)</string>
+
+    <string name= "units_dist_m">Meters (m)</string>
+    <string name="units_dist_km">Kilometers (km)</string>
+
+    <string name= "units_speed_m_per_sec">Meters per second (m/s)</string>
+    <string name="units_speed_km_per_sec">Kilometers per second (km/sec)</string>
+    <string name= "units_speed_km_per_hr">Kilometers per hour (kph, km/hr)</string>
+</resources>
