@@ -23,8 +23,6 @@ import imallett.FlashBang.Views.ViewGraphAudio;
 import imallett.FlashBang.Views.ViewGraphLight;
 
 public class ActivityMain extends AppCompatActivity {
-	private DataStream stream;
-
 	public MeasurerAudio audio;
 	public MeasurerLight light;
 	public MeasurerHumidity humidity;
@@ -89,7 +87,7 @@ public class ActivityMain extends AppCompatActivity {
 			}
 		});
 
-		stream = new DataStream();
+		DataStream stream = new DataStream();
 
 		SensorManager sensor_manager = (SensorManager)getSystemService(SENSOR_SERVICE);
 
@@ -106,7 +104,7 @@ public class ActivityMain extends AppCompatActivity {
 
 		temperature = new MeasurerTemperature(stream, sensor_manager);
 
-		_thread_update = new ThreadUpdate(this, stream, audio, graph_audio,graph_light);
+		_thread_update = new ThreadUpdate(this, audio, graph_audio,graph_light);
 		thread_correlate = new ThreadCorrelate(this, stream);
 
 		_thread_update.start();

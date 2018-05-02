@@ -39,7 +39,8 @@ public class MeasurerAudio extends MeasurerBase {
 								.setBufferSizeInBytes(2*buffer_size)
 								.build()
 							;*/
-							if (recorder.getState() == AudioRecord.STATE_INITIALIZED) {
+							int state = recorder.getState();
+							if (state == AudioRecord.STATE_INITIALIZED) {
 								SAMPLE_RATE = sample_rate;
 								CHANNEL_FORMAT = channel_format;
 								SAMPLE_ENCODING = encoding;

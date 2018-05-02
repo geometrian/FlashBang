@@ -4,7 +4,6 @@ import android.graphics.Canvas;
 import android.view.SurfaceView;
 
 import imallett.FlashBang.Config;
-import imallett.FlashBang.DataStream;
 import imallett.FlashBang.Activities.ActivityMain;
 import imallett.FlashBang.R;
 import imallett.FlashBang.Views.ViewGraphAudio;
@@ -14,16 +13,13 @@ import imallett.FlashBang.Measurement.MeasurerAudio;
 public class ThreadUpdate extends ThreadBase {
 	private final ActivityMain _activity;
 
-	private final DataStream _stream;
-
 	private final MeasurerAudio _audio;
 
 	private final ViewGraphAudio _graph_audio;
 	private final ViewGraphLight _graph_light;
 
-	public ThreadUpdate(ActivityMain activity, DataStream stream, MeasurerAudio audio, ViewGraphAudio graph_audio, ViewGraphLight graph_light) {
+	public ThreadUpdate(ActivityMain activity, MeasurerAudio audio, ViewGraphAudio graph_audio, ViewGraphLight graph_light) {
 		_activity = activity;
-		_stream = stream;
 		_audio = audio;
 		_graph_audio = graph_audio;
 		_graph_light = graph_light;

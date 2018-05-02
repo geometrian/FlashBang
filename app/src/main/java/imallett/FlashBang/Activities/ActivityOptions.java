@@ -25,10 +25,10 @@ public class ActivityOptions extends AppCompatActivity {
 	public RadioGroup radio_temp;
 	public RadioGroup radio_dist;
 	public RadioGroup radio_speed;
-	public ArrayList<RadioPair> radio_pres_buttons  = new ArrayList<RadioPair>();
-	public ArrayList<RadioPair> radio_temp_buttons  = new ArrayList<RadioPair>();
-	public ArrayList<RadioPair> radio_dist_buttons  = new ArrayList<RadioPair>();
-	public ArrayList<RadioPair> radio_speed_buttons = new ArrayList<RadioPair>();
+	public ArrayList<RadioPair> radio_pres_buttons  = new ArrayList<>();
+	public ArrayList<RadioPair> radio_temp_buttons  = new ArrayList<>();
+	public ArrayList<RadioPair> radio_dist_buttons  = new ArrayList<>();
+	public ArrayList<RadioPair> radio_speed_buttons = new ArrayList<>();
 
 	@Override protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

@@ -35,6 +35,8 @@
     <string name="text_readme3">Contribute / Contact</string>
     <string name="text_readme4">&quot;FlashBang&quot; was developed by Ian Mallett and is both free and open-source. The source and project pages can be found at:</string>
     <string name="text_readme5">If you would like to contact me, or contribute in another way (for example, by providing translations), send email to:</string>
+    <string name="text_readme6">Privacy Policy</string>
+    <string name="text_readme7">Your microphone and brightness (or possibly in future versions, camera) data is recorded.  This data persists in memory for exactly 10 seconds before being overwritten, and is never stored to disk, transmitted over a network to anywhere, or otherwise shared with anybody.</string>
 
     <string name="units_pres">Pressure Units</string>
     <string name=   "units_pres_Pa">Pascals (Pa)</string>

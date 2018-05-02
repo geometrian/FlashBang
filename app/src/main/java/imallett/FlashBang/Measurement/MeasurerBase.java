@@ -5,7 +5,7 @@ import imallett.FlashBang.DataStream;
 public abstract class MeasurerBase {
 	public boolean valid;
 
-	public DataStream stream;
+	public final DataStream stream;
 
 	protected MeasurerBase(DataStream stream) {
 		this.stream = stream;

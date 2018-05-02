@@ -54,9 +54,7 @@ public class DataStream {
 	}
 
 	public void advance() {
-		for (int i=0;i<N-1;++i) {
-			buckets[i] = buckets[i+1];
-		}
+		System.arraycopy(buckets, 1, buckets, 0, N - 1);
 		buckets[N-1] = new Bucket();
 		t1_last += Config.BUCKET_NS;
 		++advances;
@@ -65,8 +63,7 @@ public class DataStream {
 	private int _getIndex(long t) {
 		while (t>=t1_last) advance();
 		long dt=t1_last-t; assert dt>0;
-		int i = N-1 - (int)(dt/Config.BUCKET_NS);
-		return i;
+		return N-1 - (int)(dt/Config.BUCKET_NS);
 	}
 	public void updateVolume(long t, float volume) {
 		int i=_getIndex(t); if (i>=0) buckets[i].updateVolume(volume);

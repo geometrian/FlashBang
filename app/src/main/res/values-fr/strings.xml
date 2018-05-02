@@ -35,4 +35,6 @@
     <string name="text_readme3">Contribuez / Contactez</string>
     <string name="text_readme4">&quot;FlashBang&quot; a été développé par Ian Mallett et est à la fois des logiciels libre et à code source ouvert. Les pages de source et de projet peuvent être trouvés à l\'adresse:</string>
     <string name="text_readme5">Si vous souhaitez me contacter, ou de contribuer d\'une autre manière (par exemple, fournir des traductions), envoyer l\'email à:</string>
+    <string name="text_readme6">Règles de Confidentialité</string>
+    <string name="text_readme7">Vos données de microphone et de luminosité (ou éventuellement dans les futures versions, appareil photo) sont enregistrées. Ces données restent en mémoire pendant exactement 10 secondes avant d\'être écrasées, et ne sont jamais stockées sur disque, transmises sur un réseau vers n\'importe quel endroit, ou partagées avec quiconque.</string>
 </resources>
