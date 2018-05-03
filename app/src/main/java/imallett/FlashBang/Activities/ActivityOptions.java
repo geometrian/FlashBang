@@ -34,7 +34,7 @@ public class ActivityOptions extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.options);
 
-		radio_pres = (RadioGroup)findViewById(R.id.radio_pres);
+		radio_pres = findViewById(R.id.radio_pres);
 		radio_pres_buttons.add(new RadioPair( (RadioButton)findViewById(R.id.radio_pres_Pa   ), Config.UNITS.Pa    ));
 		radio_pres_buttons.add(new RadioPair( (RadioButton)findViewById(R.id.radio_pres_kPa  ), Config.UNITS.kPa   ));
 		radio_pres_buttons.add(new RadioPair( (RadioButton)findViewById(R.id.radio_pres_hPa  ), Config.UNITS.hPa   ));
@@ -47,7 +47,7 @@ public class ActivityOptions extends AppCompatActivity {
 		radio_pres_buttons.add(new RadioPair( (RadioButton)findViewById(R.id.radio_pres_Torr ), Config.UNITS.Torr  ));
 		radio_pres_buttons.add(new RadioPair( (RadioButton)findViewById(R.id.radio_pres_mTorr), Config.UNITS.mTorr ));
 
-		radio_temp = (RadioGroup)findViewById(R.id.radio_temp);
+		radio_temp = findViewById(R.id.radio_temp);
 		radio_temp_buttons.add(new RadioPair( (RadioButton)findViewById(R.id.radio_temp_C ), Config.UNITS.C  ));
 		radio_temp_buttons.add(new RadioPair( (RadioButton)findViewById(R.id.radio_temp_K ), Config.UNITS.K  ));
 		radio_temp_buttons.add(new RadioPair( (RadioButton)findViewById(R.id.radio_temp_F ), Config.UNITS.F  ));
@@ -57,14 +57,14 @@ public class ActivityOptions extends AppCompatActivity {
 		radio_temp_buttons.add(new RadioPair( (RadioButton)findViewById(R.id.radio_temp_Re), Config.UNITS.Re ));
 		radio_temp_buttons.add(new RadioPair( (RadioButton)findViewById(R.id.radio_temp_Ro), Config.UNITS.Ro ));
 
-		radio_dist = (RadioGroup)findViewById(R.id.radio_dist);
+		radio_dist = findViewById(R.id.radio_dist);
 		radio_dist_buttons.add(new RadioPair( (RadioButton)findViewById(R.id.radio_dist_m ), Config.UNITS.m  ));
 		radio_dist_buttons.add(new RadioPair( (RadioButton)findViewById(R.id.radio_dist_km), Config.UNITS.km ));
 		radio_dist_buttons.add(new RadioPair( (RadioButton)findViewById(R.id.radio_dist_ft), Config.UNITS.ft ));
 		radio_dist_buttons.add(new RadioPair( (RadioButton)findViewById(R.id.radio_dist_yd), Config.UNITS.yd ));
 		radio_dist_buttons.add(new RadioPair( (RadioButton)findViewById(R.id.radio_dist_mi), Config.UNITS.mi ));
 
-		radio_speed = (RadioGroup)findViewById(R.id.radio_speed);
+		radio_speed = findViewById(R.id.radio_speed);
 		radio_speed_buttons.add(new RadioPair( (RadioButton)findViewById(R.id.radio_speed_m_per_sec ), Config.UNITS.m_per_sec  ));
 		radio_speed_buttons.add(new RadioPair( (RadioButton)findViewById(R.id.radio_speed_km_per_sec), Config.UNITS.km_per_sec ));
 		radio_speed_buttons.add(new RadioPair( (RadioButton)findViewById(R.id.radio_speed_km_per_hr ), Config.UNITS.km_per_hr  ));
@@ -93,22 +93,22 @@ public class ActivityOptions extends AppCompatActivity {
 	private void _updateConfig() {
 		RadioButton button;
 
-		button = (RadioButton)findViewById(radio_pres.getCheckedRadioButtonId());
+		button = findViewById(radio_pres.getCheckedRadioButtonId());
 		for (RadioPair pair : radio_pres_buttons) {
 			if (pair.button==button) { Config.units_pressure=pair.unit; break; }
 		}
 
-		button = (RadioButton)findViewById(radio_temp.getCheckedRadioButtonId());
+		button = findViewById(radio_temp.getCheckedRadioButtonId());
 		for (RadioPair pair : radio_temp_buttons) {
 			if (pair.button==button) { Config.units_temperature=pair.unit; break; }
 		}
 
-		button = (RadioButton)findViewById(radio_dist.getCheckedRadioButtonId());
+		button = findViewById(radio_dist.getCheckedRadioButtonId());
 		for (RadioPair pair : radio_dist_buttons) {
 			if (pair.button==button) { Config.units_distance=pair.unit; break; }
 		}
 
-		button = (RadioButton)findViewById(radio_speed.getCheckedRadioButtonId());
+		button = findViewById(radio_speed.getCheckedRadioButtonId());
 		for (RadioPair pair : radio_speed_buttons) {
 			if (pair.button==button) { Config.units_speed=pair.unit; break; }
 		}

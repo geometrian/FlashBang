@@ -23,6 +23,6 @@ public class ViewGraphLight extends ViewGraphBase {
 					//super._drawGraph(canvas,light.stream,5);
 				}
 			}
-		} catch (NullPointerException e) {} //Workaround for moronic bugs in Android Studio
+		} catch (NullPointerException ignored) {} //Workaround for moronic bugs in Android Studio
 	}
 }

@@ -1,9 +1,14 @@
 package imallett.FlashBang.Activities;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.hardware.SensorManager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
@@ -48,38 +53,42 @@ public class ActivityMain extends AppCompatActivity {
 	public Button button_readme;
 
 	@Override protected void onCreate(Bundle savedInstanceState) {
-		Config.units_pressure    = Config.UNITS.values()[ getSharedPreferences(Config.units_file,MODE_PRIVATE).getInt(   "pressure", 0) ];
+		if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)!=PackageManager.PERMISSION_GRANTED) {
+			ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO},1);
+		}
+
+		Config.units_pressure    = Config.UNITS.values()[ getSharedPreferences(Config.units_file,MODE_PRIVATE).getInt("pressure",    0) ];
 		Config.units_temperature = Config.UNITS.values()[ getSharedPreferences(Config.units_file,MODE_PRIVATE).getInt("temperature",11) ];
-		Config.units_distance    = Config.UNITS.values()[ getSharedPreferences(Config.units_file,MODE_PRIVATE).getInt(   "distance",19) ];
-		Config.units_speed       = Config.UNITS.values()[ getSharedPreferences(Config.units_file,MODE_PRIVATE).getInt(      "speed",24) ];
+		Config.units_distance    = Config.UNITS.values()[ getSharedPreferences(Config.units_file,MODE_PRIVATE).getInt("distance",   19) ];
+		Config.units_speed       = Config.UNITS.values()[ getSharedPreferences(Config.units_file,MODE_PRIVATE).getInt("speed",      24) ];
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main_window);
 
-		ViewGraphAudio graph_audio = (ViewGraphAudio)findViewById(R.id.graph_audio);
-		ViewGraphLight graph_light = (ViewGraphLight)findViewById(R.id.graph_light);
+		ViewGraphAudio graph_audio = findViewById(R.id.graph_audio);
+		ViewGraphLight graph_light = findViewById(R.id.graph_light);
 
-		text_value_pres  = (TextView)findViewById(R.id.text_value_pres);
-		text_value_temp  = (TextView)findViewById(R.id.text_value_temp);
-		text_value_RH    = (TextView)findViewById(R.id.text_value_RH);
-		text_value_delay = (TextView)findViewById(R.id.text_value_delay);
-		seekbar_sensitivity = (SeekBar)findViewById(R.id.seekbar_sensitivity);
+		text_value_pres     = findViewById(R.id.text_value_pres);
+		text_value_temp     = findViewById(R.id.text_value_temp);
+		text_value_RH       = findViewById(R.id.text_value_RH);
+		text_value_delay    = findViewById(R.id.text_value_delay);
+		seekbar_sensitivity = findViewById(R.id.seekbar_sensitivity);
 		seekbar_sensitivity.setProgress(Math.round(Config.DEFAULT_SENSITIVITY*100.0f));
 
-		text_value_airn = (TextView)findViewById(R.id.text_value_airn);
-		text_value_sol  = (TextView)findViewById(R.id.text_value_sol);
-		text_value_sos  = (TextView)findViewById(R.id.text_value_sos);
+		text_value_airn = findViewById(R.id.text_value_airn);
+		text_value_sol  = findViewById(R.id.text_value_sol);
+		text_value_sos  = findViewById(R.id.text_value_sos);
 
-		text_value_dist = (TextView)findViewById(R.id.text_value_dist);
+		text_value_dist = findViewById(R.id.text_value_dist);
 
-		button_options = (Button)findViewById(R.id.button_options);
+		button_options = findViewById(R.id.button_options);
 		button_options.setOnClickListener(new View.OnClickListener() {
 			@Override public void onClick(View v) {
 				Intent intent = new Intent(ActivityMain.this, ActivityOptions.class);
 				ActivityMain.this.startActivity(intent);
 			}
 		});
-		button_readme = (Button)findViewById(R.id.button_readme);
+		button_readme = findViewById(R.id.button_readme);
 		button_readme.setOnClickListener(new View.OnClickListener() {
 			@Override public void onClick(View v) {
 				Intent intent = new Intent(ActivityMain.this, ActivityReadme.class);
@@ -110,12 +119,12 @@ public class ActivityMain extends AppCompatActivity {
 		_thread_update.start();
 		thread_correlate.start();
 
-		if (humidity.valid) text_value_RH.setBackgroundColor(getColor(R.color.color_good));
-		if (pressure.valid) text_value_pres.setBackgroundColor(getColor(R.color.color_good));
-		if (temperature.valid) text_value_temp.setBackgroundColor(getColor(R.color.color_good));
+		if (humidity.   valid) text_value_RH.  setBackgroundColor(ContextCompat.getColor(this,R.color.color_good));
+		if (pressure.   valid) text_value_pres.setBackgroundColor(ContextCompat.getColor(this,R.color.color_good));
+		if (temperature.valid) text_value_temp.setBackgroundColor(ContextCompat.getColor(this,R.color.color_good));
 		if (audio.valid && light.valid) {
-			text_value_delay.setBackgroundColor(getColor(R.color.color_good));
-			text_value_dist.setBackgroundColor(getColor(R.color.color_good));
+			text_value_delay.setBackgroundColor(ContextCompat.getColor(this,R.color.color_good));
+			text_value_dist.setBackgroundColor(ContextCompat.getColor(this,R.color.color_good));
 		}
 	}
 	@Override protected void onDestroy() {
@@ -127,11 +136,18 @@ public class ActivityMain extends AppCompatActivity {
 				_thread_update.join();
 				thread_correlate.join();
 				retry = false;
-			} catch (InterruptedException e) {}
+			} catch (InterruptedException ignored) {}
 		} while (retry);
 
 		audio.stop();
 
 		super.onDestroy();
+	}
+
+	@Override public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], @NonNull int[] grantResults) {
+		assert requestCode==1;
+		if (grantResults[0]==PackageManager.PERMISSION_GRANTED) {
+			recreate();
+		}
 	}
 }

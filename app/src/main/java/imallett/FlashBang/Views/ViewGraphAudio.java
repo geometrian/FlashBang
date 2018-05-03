@@ -22,6 +22,6 @@ public class ViewGraphAudio extends ViewGraphBase {
 					super._drawGraph(canvas,audio.stream,0);
 				}
 			}
-		} catch (NullPointerException e) {} //Workaround for moronic bugs in Android Studio
+		} catch (NullPointerException ignored) {} //Workaround for moronic bugs in Android Studio
 	}
 }
