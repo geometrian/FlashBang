@@ -1,4 +1,5 @@
 # FlashBang
+![logo](Logo/horizontal.png)
 ## Automatic Android distance calculator using time delay between light and sound
 
 [<img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" width="200px"/>](https://play.google.com/store/apps/details?id=imallett.FlashBang)
