@@ -1,5 +1,4 @@
-# FlashBang
-![logo](Logo/horizontal.png)
+# FlashBang ![logo](logo-and-appstore/logo/color.png | width=50)
 ## Automatic Android distance calculator using time delay between light and sound
 
 [<img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" width="200px"/>](https://play.google.com/store/apps/details?id=imallett.FlashBang)
@@ -20,7 +19,7 @@ To use, simply point your Android device's light sensor at the event and observe
 
 ### Contribute / Contact / Credits
 
-FlashBang was developed primarily by Ian Mallett.  Some translations have been supplied via the nice [Ackuna](http://ackuna.com/translate-/flashbang) community project.  FlashBang is both free and open-source software.  The source can be found at:
+FlashBang was developed primarily by Ian Mallett.  Some translations have been supplied via the nice [Ackuna](http://ackuna.com/translate-/flashbang) community project, and the logo is by user zularizal.  FlashBang is both free and open-source software.  The source can be found at:
 
 > [https://github.com/imallett/FlashBang](https://github.com/imallett/FlashBang)
 
